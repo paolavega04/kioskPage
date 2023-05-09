@@ -1,0 +1,32 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <div class="main-div">
+        <mat-card-header>
+            <mat-card class="example-card">
+                <mat-card-title>
+                    <img class="logo" src="./../assets/images/logo.png" alt="preventip"/>
+                </mat-card-title>
+                <h1 class="texto">Bienvenida, Sarita</h1>
+                <h4>coloque suavemente la punta de su dedo índice en el oxímetro.</h4>
+                <mat-card-title>
+                    <img class="imagenproceso" src="./../assets/images/oximeter.png" alt="preventip" width="7%" height="60%" />
+                </mat-card-title>
+                
+                <div class="box">
+                   <button (click)="login()" mat-stroked-button  class="login-button">
+                    <i aria-hidden="true"></i>
+                    Salir
+                    </button> 
+                    <div class="space">
+                    </div>
+                    <button (click)="bmi()" mat-stroked-button  class="login-button">
+                     <i aria-hidden="true"></i>
+                     Siguiente
+                     </button> 
+                </div>
+            </mat-card>
+            
+        </mat-card-header>
+
+    </div>
+
+</div>

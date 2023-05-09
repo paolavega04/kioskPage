@@ -1,0 +1,78 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <div class="main-div">
+        
+        <mat-card-header>
+            
+            <mat-card class="example-card">
+                <mat-card-title>
+                    <img class="logo" src="./../assets/images/logo.png" alt="preventip" width="20%" height="60%" />
+                </mat-card-title>
+                Crea tu cuenta
+                <form class="example-form">
+                    <mat-form-field>
+                        <mat-label>Nombre/s</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Apellido paterno</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </form>
+                <form>
+                    <mat-form-field>
+                        <mat-label>Apellido paterno</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </form>
+
+                <form>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Relación con el usuario</mat-label>
+                        <mat-select>
+                            <mat-option value="one">First option</mat-option>
+                            <mat-option value="two">Second option</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </form>
+                <form>
+                    <mat-form-field>
+                        <mat-label>Correo</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Telefono</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </form>
+
+                <form>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Pregunta de seguridad</mat-label>
+                        <mat-select>
+                            <mat-option value="one">First option</mat-option>
+                            <mat-option value="two">Second option</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Respuesta</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </form>
+
+                <div>
+                    <mat-form-field>
+                        <mat-label>Contraseña</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+            </mat-card>
+            <button (click)="login()" mat-stroked-button  class="login-btn">
+                <i aria-hidden="true"></i>
+                Crear cuenta
+            </button>
+        </mat-card-header>
+
+    </div>
+
+</div>

@@ -1,0 +1,98 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <div class="main-div">
+        <mat-card-header>
+            
+            <mat-card class="example-card">
+                <mat-card-title>
+                    <img class="logo" src="./../assets/images/logo.png" alt="preventip" width="20%" height="60%" />
+                </mat-card-title>
+                Crea tu cuenta
+                <form class="example-form">
+                    <mat-form-field>
+                        <mat-label>Nombre/s</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Apellido paterno</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </form>
+                <form>
+                    <mat-form-field>
+                        <mat-label>Apellido paterno</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Sexo</mat-label>
+                        <mat-select>
+                            <mat-option value="one">First option</mat-option>
+                            <mat-option value="two">Second option</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </form>
+
+                <form>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Ciudad</mat-label>
+                        <mat-select>
+                            <mat-option value="one">First option</mat-option>
+                            <mat-option value="two">Second option</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Estado</mat-label>
+                        <mat-select>
+                            <mat-option value="one">First option</mat-option>
+                            <mat-option value="two">Second option</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </form>
+                <form>
+                    <mat-form-field>
+                        <mat-label>Correo</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Telefono</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </form>
+                <mat-form-field appearance="fill">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <div>
+                    <form>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Algun padecimiento</mat-label>
+                            <mat-select>
+                                <mat-option value="one">First option</mat-option>
+                                <mat-option value="two">Second option</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Programa estatal</mat-label>
+                            <mat-select>
+                                <mat-option value="one">First option</mat-option>
+                                <mat-option value="two">Second option</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </form>
+                </div>
+                
+            </mat-card>
+            <button (click)="login()" mat-stroked-button  class="login-btn">
+                <i aria-hidden="true"></i>
+                Crear cuenta
+            </button>
+        </mat-card-header>
+
+    </div>
+
+</div>
