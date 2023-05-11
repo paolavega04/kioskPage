@@ -7,6 +7,7 @@ import { BmiComponent } from './views/bmi/bmi.component';
 import { PressureComponent } from './views/pressure/pressure.component';
 import { StorageComponent } from './views/storage/storage.component';
 import { UcontactComponent } from './views/ucontact/ucontact.component';
+import { MetricsComponent } from './views/metrics/metrics.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'bmi', component: BmiComponent},
   {path: 'pressure', component: PressureComponent},
   {path: 'storage', component: StorageComponent},
-  {path: 'ucontact', component: UcontactComponent}
+  {path: 'ucontact', component: UcontactComponent},
+  {path: 'metrics', component: MetricsComponent}
 ];
 
 @NgModule({

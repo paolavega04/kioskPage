@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 })
 export class PressureComponent {
   constructor(private router: Router){}  
-  resultados(){
-      this.router.navigate(['resultados']);
+  metrics(){
+      this.router.navigate(['metrics']);
     }
     login(){
       this.router.navigate(['login']);

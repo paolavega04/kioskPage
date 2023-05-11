@@ -13,6 +13,7 @@ import { BmiComponent } from './views/bmi/bmi.component';
 import { PressureComponent } from './views/pressure/pressure.component';
 import { StorageComponent } from './views/storage/storage.component';
 import { UcontactComponent } from './views/ucontact/ucontact.component';
+import { MetricsComponent } from './views/metrics/metrics.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { UcontactComponent } from './views/ucontact/ucontact.component';
     BmiComponent,
     PressureComponent,
     StorageComponent,
-    UcontactComponent],
+    UcontactComponent,
+    MetricsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
