@@ -14,6 +14,7 @@ import { PressureComponent } from './views/pressure/pressure.component';
 import { StorageComponent } from './views/storage/storage.component';
 import { UcontactComponent } from './views/ucontact/ucontact.component';
 import { MetricsComponent } from './views/metrics/metrics.component';
+import { RestorePComponent } from './views/restore-p/restore-p.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { MetricsComponent } from './views/metrics/metrics.component';
     PressureComponent,
     StorageComponent,
     UcontactComponent,
-    MetricsComponent],
+    MetricsComponent,
+    RestorePComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
