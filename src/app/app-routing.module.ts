@@ -8,6 +8,7 @@ import { PressureComponent } from './views/pressure/pressure.component';
 import { StorageComponent } from './views/storage/storage.component';
 import { UcontactComponent } from './views/ucontact/ucontact.component';
 import { MetricsComponent } from './views/metrics/metrics.component';
+import { RandomNumberComponent } from './random-number/random-number.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,9 @@ const routes: Routes = [
   {path: 'pressure', component: PressureComponent},
   {path: 'storage', component: StorageComponent},
   {path: 'ucontact', component: UcontactComponent},
-  {path: 'metrics', component: MetricsComponent}
+  {path: 'metrics', component: MetricsComponent},
+  { path: 'random', component: RandomNumberComponent }
+
 ];
 
 @NgModule({

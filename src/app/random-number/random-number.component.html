@@ -1,0 +1,7 @@
+<div>
+    <button (click)="generateRandomNumbers()">Generate Random Numbers</button>
+  </div>
+  <br>
+  <div *ngFor="let variable of variables">
+    <p>{{ variable.name }}: {{ variable.value }}</p>
+  </div>

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './views/login/login.module';
@@ -15,7 +14,9 @@ import { StorageComponent } from './views/storage/storage.component';
 import { UcontactComponent } from './views/ucontact/ucontact.component';
 import { MetricsComponent } from './views/metrics/metrics.component';
 import { RestorePComponent } from './views/restore-p/restore-p.component';
-
+import { RandomNumberComponent } from './random-number/random-number.component';
+import { DisplayNumberComponent } from './display-number/display-number.component';
+import { RandomNumberService } from './random-number.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,10 @@ import { RestorePComponent } from './views/restore-p/restore-p.component';
     StorageComponent,
     UcontactComponent,
     MetricsComponent,
-    RestorePComponent],
+    RestorePComponent,
+    RandomNumberComponent,
+    DisplayNumberComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,7 +40,7 @@ import { RestorePComponent } from './views/restore-p/restore-p.component';
     AngularMaterialsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [RandomNumberService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
