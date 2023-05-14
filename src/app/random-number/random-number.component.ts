@@ -14,7 +14,7 @@ export class RandomNumberComponent {
     { name: 'temperatura', min: 36.0, max: 37.3, value: 0.0.toFixed(1)},
     { name: 'presion_sanguinea_sistolica', min: 170, max: 110, value: 0 },
     { name: 'presion_sanguinea_diastolica', min: 80, max: 90, value: 0 },
-    { name: 'peso', min: 60, max: 70, value: 0 },
+    { name: 'peso', min: 40, max: 105, value: 0 },
     { name: 'estatura', min: 150, max: 198, value: 0 }
   ];
 
