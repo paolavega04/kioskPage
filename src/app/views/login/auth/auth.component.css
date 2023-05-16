@@ -100,6 +100,20 @@ body {
     height: 40px;
 }
 
+
+.login-wrapper .example-full-width,
+.login-wrapper .password-btn {
+
+    color: #5da337;
+}
+
+.password-b{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      
+}
+
 .login-wrapper mat-card-header {
     text-align: center;
     width: 100%;

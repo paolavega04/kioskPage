@@ -25,4 +25,7 @@ export class AuthComponent {
     cuenta(){
       this.router.navigate(['inicio']);
     }
+    restore(){
+      this.router.navigate(['restore-p']);
+    }
 }
