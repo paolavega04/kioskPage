@@ -43,8 +43,8 @@ button{
     color: white;
 }
 .image_metrics {
-    height: 90%;
-    width: 90%;
+    height: 70%;
+    width: 70%;
     object-fit: contain;
 }
 .texto {
@@ -52,8 +52,11 @@ button{
     font-size: 16px;
     text-align: center;
 }
+.texto_metricas{
+    color: #5da337;
+}
 .image-content{
-    height: 4%;
+    height: 3%;
     width: 15%;
     justify-items: center;
     text-align: center;
@@ -61,7 +64,7 @@ button{
 }
 
 .root-container .login-button {
-    width: 70%;
+    width: 60%;
     font-size: 22px;
     background-color: #95bd81;
     color: #ffffff;
