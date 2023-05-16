@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'storage', component: StorageComponent},
   {path: 'ucontact', component: UcontactComponent},
   {path: 'metrics', component: MetricsComponent},
-  { path: 'random', component: RandomNumberComponent }
+  {path: 'random', component: RandomNumberComponent }
 
 ];
 

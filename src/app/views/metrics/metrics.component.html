@@ -1,40 +1,4 @@
-<div class="root-container">
-    <div class="container">
-        <div class="box">
-            <div class="row-one">
-                <div class="image-content">
-                    <img class=image_metrics src="./../assets/images/heart_rate.png" alt="Heart Rate"/>
-                    <h2 class="texto"> Frecuencia Cardíaca </h2>
-                </div>
-                <div class="image-content">
-                    <img class=image_metrics src="./../assets/images/respiratory_rate.png" alt="Respiratory Rate"/>
-                    <h2 class="texto"> Frecuencia Respiratoria</h2>
-                </div>
-                <div class="image-content">
-                    <img class=image_metrics src="./../assets/images/oxygen_saturation.png" alt="Oxygen Saturation"/>
-                    <h2 class="texto"> Saturación de Oxígeno</h2>
-                </div>
-            </div>
-            <div class="row-two">
-                <div class="image-content">
-                    <img class=image_metrics src="./../assets/images/weight.png" alt="weight & BMI"/>
-                    <h2 class="texto"> Peso e IMC</h2>
-                </div>
-                <div class="image-content">
-                    <img class=image_metrics src="./../assets/images/temperature.png" alt="temperature"/>
-                    <h2 class="texto"> Temperatura</h2>
-                </div>
-                <div class="image-content">
-                    <img class=image_metrics src="./../assets/images/blood_pressure.png" alt="blood pressure"/>
-                    <h2 class="texto"> Presión arterial </h2>
-                </div>
-            </div>
-        </div>
-
-            <button (click)="storage()" mat-stroked-button  class="login-button">
-                <i aria-hidden="true"></i>
-                Siguiente
-                </button> 
-
-    </div>
+<div *ngFor="let variable of variables">
+  <h3>{{ variable.name }}</h3>
+  <p>Value: {{ variable.value }} {{ variable.unit }}</p>
 </div>
