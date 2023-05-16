@@ -9,7 +9,7 @@ import { MetricsService } from 'src/app/metrics.service';
   styleUrls: ['./pressure.component.css']
 })
 export class PressureComponent implements OnInit {
-  constructor(private metricsService: MetricsService, private router: Router) { }
+  constructor(private metricsService: MetricsService, private router: Router) {  console.log(this.metricsService);}
 
   ngOnInit(): void { }
 

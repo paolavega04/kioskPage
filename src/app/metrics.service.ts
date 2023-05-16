@@ -9,8 +9,8 @@ export class MetricsService {
     {
       name: 'temperatura',
       value: null,
-      min: 34,
-      max: 40,
+      min: 36,
+      max: 37.2,
       unit: '°C'
     },
     {

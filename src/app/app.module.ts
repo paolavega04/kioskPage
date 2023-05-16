@@ -16,8 +16,6 @@ import { StorageComponent } from './views/storage/storage.component';
 import { UcontactComponent } from './views/ucontact/ucontact.component';
 import { MetricsComponent } from './views/metrics/metrics.component';
 import { RestorePComponent } from './views/restore-p/restore-p.component';
-import { RandomNumberComponent } from './random-number/random-number.component';
-import { DisplayNumberComponent } from './display-number/display-number.component';
 import { RandomNumberService } from './random-number.service';
 
 @NgModule({
@@ -29,9 +27,7 @@ import { RandomNumberService } from './random-number.service';
     StorageComponent,
     UcontactComponent,
     MetricsComponent,
-    RestorePComponent,
-    RandomNumberComponent,
-    DisplayNumberComponent
+    RestorePComponent
   ],
   imports: [
     BrowserModule,
