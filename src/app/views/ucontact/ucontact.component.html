@@ -1,78 +1,212 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-    <div class="main-div">
-        
-        <mat-card-header>
-            
-            <mat-card class="example-card">
-                <mat-card-title>
-                    <img class="logo" src="./../assets/images/logo.png" alt="preventip" width="20%" height="60%" />
-                </mat-card-title>
-                Crea tu cuenta
-                <form class="example-form">
-                    <mat-form-field>
-                        <mat-label>Nombre/s</mat-label>
-                        <input matInput>
-                    </mat-form-field>
+  <div class="main-div">
+    <mat-card class="form-card">
 
-                    <mat-form-field>
-                        <mat-label>Apellido paterno</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </form>
-                <form>
-                    <mat-form-field>
-                        <mat-label>Apellido paterno</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </form>
+      <form class="example-form">
+        <h2 class="inicio-sesion">Registro</h2>
 
-                <form>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Relación con el usuario</mat-label>
-                        <mat-select>
-                            <mat-option value="one">First option</mat-option>
-                            <mat-option value="two">Second option</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                </form>
-                <form>
-                    <mat-form-field>
-                        <mat-label>Correo</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Telefono</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </form>
+        <h3 class="indicaciones">Por favor indica toda la información solicitada para poder enviarte tus resultados</h3>
 
-                <form>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Pregunta de seguridad</mat-label>
-                        <mat-select>
-                            <mat-option value="one">First option</mat-option>
-                            <mat-option value="two">Second option</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Respuesta</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </form>
 
-                <div>
-                    <mat-form-field>
-                        <mat-label>Contraseña</mat-label>
-                        <input matInput>
-                    </mat-form-field>
-                </div>
-            </mat-card>
-            <button (click)="login()" mat-stroked-button  class="login-btn">
-                <i aria-hidden="true"></i>
-                Crear cuenta
-            </button>
-        </mat-card-header>
+        <mat-form-field appearance="outline" style="width: 29%; margin-right: 1rem">
+          <mat-label>Nombre(s)</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 30%; margin-right: 1rem">
+          <mat-label>Apellido Paterno</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 29%">
+          <mat-label>Apellido Materno</mat-label>
+          <input matInput />
+        </mat-form-field>
 
-    </div>
 
+
+        <mat-form-field appearance="outline" style="width: 45%; margin-right: 1rem">
+          <mat-label>Sexo</mat-label>
+          <mat-select>
+            <mat-option value="one">Femenino</mat-option>
+            <mat-option value="two">Masculino</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 45%">
+          <mat-label>Código postal</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 45%; margin-right: 1rem">
+          <mat-label>Ciudad</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 45%">
+          <mat-label>Estado</mat-label>
+          <mat-select>
+            <mat-option value="1">Aguascalientes</mat-option>
+            <mat-option value="2">Baja California</mat-option>
+            <mat-option value="3">Baja California Sur</mat-option>
+            <mat-option value="4">Campeche</mat-option>
+            <mat-option value="5">Chiapas</mat-option>
+            <mat-option value="6">Chihuahua</mat-option>
+            <mat-option value="7">Coahuila</mat-option>
+            <mat-option value="8">Colima</mat-option>
+            <mat-option value="9">Durango</mat-option>
+            <mat-option value="10">Estado de México</mat-option>
+            <mat-option value="11">Guanajuato</mat-option>
+            <mat-option value="12">Guerrero</mat-option>
+            <mat-option value="13">Hidalgo</mat-option>
+            <mat-option value="14">Jalisco</mat-option>
+            <mat-option value="15">Michoacán</mat-option>
+            <mat-option value="16">Morelos</mat-option>
+            <mat-option value="17">Nayarit</mat-option>
+            <mat-option value="18">Nuevo León</mat-option>
+            <mat-option value="19">Oaxaca</mat-option>
+            <mat-option value="20">Puebla</mat-option>
+            <mat-option value="21">Querétaro</mat-option>
+            <mat-option value="22">Quintana Roo</mat-option>
+            <mat-option value="23">San Luis Potosí</mat-option>
+            <mat-option value="24">Sinaloa</mat-option>
+            <mat-option value="25">Sonora</mat-option>
+            <mat-option value="26">Tabasco</mat-option>
+            <mat-option value="27">Tamaulipas</mat-option>
+            <mat-option value="28">Tlaxcala</mat-option>
+            <mat-option value="29">Veracruz</mat-option>
+            <mat-option value="30">Yucatán</mat-option>
+            <mat-option value="31">Zacatecas</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 45%; margin-right: 1rem">
+          <mat-label>Correo</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 45%">
+          <mat-label>Teléfono</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" style="width: 45%; margin-right: 1rem">
+          <mat-label>Año nacimiento</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 45%">
+          <mat-label>Programa estatal</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <h5 class="division_formulario">Padecimientos</h5>
+        <h5 class="indicaciones-basic">
+          Por favor indica todos los padecimientos que tengas
+        </h5>
+
+        <section class="section-padecimientos" >
+          <mat-checkbox class="example-margin">Diabetes tipo 2</mat-checkbox>
+          <mat-checkbox class="example-margin">Hipertensión</mat-checkbox>
+          <mat-checkbox class="example-margin">Obesidad</mat-checkbox>
+          <mat-checkbox class="example-margin">Artritis</mat-checkbox>
+          <mat-checkbox class="example-margin">Osteoporosis</mat-checkbox>
+          <mat-checkbox class="example-margin">Parkinson</mat-checkbox>
+          <mat-checkbox class="example-margin">Alzheimer</mat-checkbox>
+          <mat-checkbox class="example-margin">Asma</mat-checkbox>
+          <mat-checkbox class="example-margin">Fibrilación Auricular</mat-checkbox>
+          <mat-checkbox class="example-margin">Hipotiroidismo</mat-checkbox>
+
+        </section>
+
+
+        <h5 class="division_formulario">Pregunta de seguridad</h5>
+
+        <mat-form-field appearance="outline" style="width: 90%">
+          <mat-label>Pregunta seguridad</mat-label>
+          <mat-select>
+            <mat-option value="one">p1</mat-option>
+            <mat-option value="two">p2</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 90%">
+          <mat-label>Respuesta</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <h5 class="division_formulario">Contraseña de usuario</h5>
+        <mat-form-field appearance="outline" style="width: 90%">
+          <mat-label>Contraseña</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 90%">
+          <mat-label>Confirmar contraseña</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <h3 class="header_contactoc">Contacto de confianza</h3>
+        <h5 class="indicaciones-basic">
+          En esta sección escribe la información de la persona con la que deseas compartir tus datos
+        </h5>
+        <mat-form-field appearance="outline" style="width: 45%; margin-right: 1rem">
+          <mat-label>Nombre(s)</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 45%">
+          <mat-label>Apellido Paterno</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 45%; margin-right: 1rem">
+          <mat-label>Apellido Materno</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 45%">
+          <mat-label>Teléfono</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" style="width: 92%">
+          <mat-label>Correo</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <h5 class="division_formulario">Pregunta de seguridad de contacto de confianza</h5>
+
+        <mat-form-field appearance="outline" style="width: 90%">
+          <mat-label>Pregunta seguridad </mat-label>
+          <mat-select>
+            <mat-option value="one">p1</mat-option>
+            <mat-option value="two">p2</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 90%">
+          <mat-label>Respuesta</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <h5 class="division_formulario">Contraseña de contacto de confianza</h5>
+        <mat-form-field appearance="outline" style="width: 90%">
+          <mat-label>Contraseña</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 90%">
+          <mat-label>Confirmar contraseña</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+
+        <div class="box">
+          <button (click)="salir()" mat-stroked-button  class="login-button">
+           <i aria-hidden="true"></i>
+           Salir
+           </button> 
+           <div class="space">
+           </div>
+           <button (click)="registro()" mat-stroked-button  class="login-button">
+            <i aria-hidden="true"></i>
+            Registrar
+            </button> 
+       </div>
+
+      </form>
+    </mat-card>
+  </div>
 </div>
