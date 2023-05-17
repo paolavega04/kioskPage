@@ -20,9 +20,12 @@ export class AuthComponent {
     }
 
     login(){
-      this.router.navigate(['dashboard']);
+      this.router.navigate(['ucontact']);
     }
     cuenta(){
       this.router.navigate(['inicio']);
+    }
+    restore(){
+      this.router.navigate(['restore-p']);
     }
 }

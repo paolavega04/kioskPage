@@ -17,8 +17,7 @@
                         <input matInput type="password" formControlName="psw">
                     </mat-form-field>
                 </form>
-                <div class="space">
-                </div>
+                
                 <button (click)="cuenta()" mat-stroked-button class="login-btn">
                     <i aria-hidden="true"></i>
                     Iniciar sesión
@@ -29,6 +28,12 @@
                     <i aria-hidden="true"></i>
                     Crear cuenta
                 </button>
+                <div class="password-b">
+                    <button (click)="restore()" mat-button class="password-btn"  style="margin-top: 0.9rem">
+                        <i aria-hidden="true"></i>
+                        Olvidé mi contraseña</button>
+                </div>
+                
 
             </mat-card-content>
     </mat-card>

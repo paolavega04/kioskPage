@@ -8,7 +8,11 @@ import { Router } from '@angular/router';
 })
 export class UcontactComponent {
   constructor(private router: Router) {}
-  login(){
-    this.router.navigate(['inicio']);
+  salir(){
+    this.router.navigate(['login']);
   }
+  registro(){
+    this.router.navigate(['inicio']);
+}
+
 }
