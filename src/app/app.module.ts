@@ -17,6 +17,7 @@ import { UcontactComponent } from './views/ucontact/ucontact.component';
 import { MetricsComponent } from './views/metrics/metrics.component';
 import { RestorePComponent } from './views/restore-p/restore-p.component';
 import { RandomNumberService } from './random-number.service';
+import { NewPasswordComponent } from './views/new-password/new-password.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RandomNumberService } from './random-number.service';
     StorageComponent,
     UcontactComponent,
     MetricsComponent,
-    RestorePComponent
+    RestorePComponent,
+    NewPasswordComponent
   ],
   imports: [
     BrowserModule,

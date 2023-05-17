@@ -1,32 +1,48 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-    <div class="main-div">
-      <mat-card class="form-card">
-  
-        <form class="example-form">
-            <mat-card-title>
-                <img class="logo" src="./../assets/images/logo.png" alt="preventip" width="15%" height="40%" />
-            </mat-card-title>
-          <h2 class="inicio-sesion" style="margin-top: 2rem;">Reestablecer contraseña</h2>
-  
-          <h3 class="indicaciones">Por favor indica tu correo electrónico para 
-            
-            <p></p>enviarte los pasos a seguir para recuperar
-            tu contraseña
-          </h3>
-  
-  
-          <mat-form-field appearance="outline" style="width: 70%; ; margin-top: 1rem">
-            <mat-label>Correo</mat-label>
-            <input matInput />
-          </mat-form-field>
-        </form>
-        <div class="box">
-            <button (click)="login()" mat-stroked-button  class="login-button" style="width: 70%; margin-top: 0.8rem">
-             <i aria-hidden="true"></i>
-             Enviar
-             </button> 
-             
-         </div>
-      </mat-card>
-    </div>
+  <div class="main-div">
+    <mat-card class="form-card">
+
+      <form class="example-form">
+        <mat-card-title>
+          <img class="logo" src="./../assets/images/logo.png" alt="preventip" width="15%" height="40%" />
+        </mat-card-title>
+        <h2 class="inicio-sesion" style="margin-top: 1rem;">Reestablecer contraseña</h2>
+        
+        <h5 class="indicaciones-basic">
+          Por favor indica tu correo electrónico para
+
+          <p></p>enviarte los pasos a seguir para recuperar
+          tu contraseña
+        </h5>
+
+        <mat-form-field appearance="outline" style="width: 70%">
+          <mat-label>Correo</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+        <h5 class="indicaciones-basic" style="margin-top: 0.2rem">
+          Pregunta de seguridad para reestablecer contraseña
+        </h5>
+        <mat-form-field appearance="outline" style="width: 70%">
+          <mat-label>Pregunta seguridad</mat-label>
+          <mat-select>
+            <mat-option value="one">p1</mat-option>
+            <mat-option value="two">p2</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline" style="width: 70%">
+          <mat-label>Respuesta</mat-label>
+          <input matInput />
+        </mat-form-field>
+
+      </form>
+      <div class="box">
+        <button (click)="newp()" mat-stroked-button class="login-button" style="width: 70%; margin-top: 0.5rem">
+          <i aria-hidden="true"></i>
+          Siguiente
+        </button>
+
+      </div>
+    </mat-card>
   </div>
+</div>

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class RestorePComponent {
 
     constructor(private router: Router) {}
-    login(){
-      this.router.navigate(['login']);
+    newp(){
+      this.router.navigate(['new-password']);
     }
 }

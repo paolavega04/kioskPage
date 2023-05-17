@@ -9,6 +9,7 @@ import { StorageComponent } from './views/storage/storage.component';
 import { UcontactComponent } from './views/ucontact/ucontact.component';
 import { MetricsComponent } from './views/metrics/metrics.component';
 import { RestorePComponent } from './views/restore-p/restore-p.component';
+import { NewPasswordComponent } from './views/new-password/new-password.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'storage', component: StorageComponent},
   {path: 'ucontact', component: UcontactComponent},
   {path: 'metrics', component: MetricsComponent},
-  {path: 'restore-p', component: RestorePComponent}
+  {path: 'restore-p', component: RestorePComponent},
+  {path: 'new-password', component: NewPasswordComponent}
 ];
 
 @NgModule({
