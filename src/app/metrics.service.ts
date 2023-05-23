@@ -89,8 +89,13 @@ export class MetricsService {
     });
   }
 
+  getVariables(): { }[] {
+    return this.variables;
+  }
+
   navigateToMetrics() {
     this.router.navigate(['metrics'], { state: { variables: this.variables } });
   }
 }
+
 
