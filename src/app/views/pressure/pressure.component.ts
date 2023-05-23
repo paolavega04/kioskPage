@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { MetricsService } from 'src/app/metrics.service';
+import { VitalsService } from 'src/app/services_/data_vitals.service';
 
 @Component({
   selector: 'app-pressure',
@@ -9,7 +10,7 @@ import { MetricsService } from 'src/app/metrics.service';
   styleUrls: ['./pressure.component.css']
 })
 export class PressureComponent implements OnInit {
-  constructor(private metricsService: MetricsService, private router: Router) {  console.log(this.metricsService);}
+  constructor(private metricsService: MetricsService, private router: Router, private VitalsService: VitalsService ) {  console.log(this.metricsService);}
 
   ngOnInit(): void { }
 
@@ -25,8 +26,26 @@ export class PressureComponent implements OnInit {
     this.router.navigate(['metrics']);
   }
 
+  sendVitals(): void {
+    this.VitalsService.post_vitals(
+      1, 
+      1, 
+      1,
+      1, 
+       1, 
+       1,
+      1, 
+       1, 
+      1, 
+       1,
+      1
+    );
+  }
+
   metrics(): void {
     this.generateRandomMetrics(); // generate random values before navigating to the metrics page
     this.navigateToMetrics();
+    this.sendVitals();
+
   }
 }
