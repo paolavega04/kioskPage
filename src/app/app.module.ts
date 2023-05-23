@@ -18,6 +18,7 @@ import { MetricsComponent } from './views/metrics/metrics.component';
 import { RestorePComponent } from './views/restore-p/restore-p.component';
 import { RandomNumberService } from './random-number.service';
 import { NewPasswordComponent } from './views/new-password/new-password.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { NewPasswordComponent } from './views/new-password/new-password.componen
     DashboardModule,
     BrowserAnimationsModule,
     AngularMaterialsModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [RandomNumberService],
   bootstrap: [AppComponent]
