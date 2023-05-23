@@ -18,6 +18,7 @@ import { MetricsComponent } from './views/metrics/metrics.component';
 import { RestorePComponent } from './views/restore-p/restore-p.component';
 import { RandomNumberService } from './random-number.service';
 import { NewPasswordComponent } from './views/new-password/new-password.component';
+import { DatabaseService } from './services/database.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NewPasswordComponent } from './views/new-password/new-password.componen
     UcontactComponent,
     MetricsComponent,
     RestorePComponent,
-    NewPasswordComponent
+    NewPasswordComponent,
+    UcontactComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,7 @@ import { NewPasswordComponent } from './views/new-password/new-password.componen
     AngularMaterialsModule,
     SharedModule
   ],
-  providers: [RandomNumberService],
+  providers: [RandomNumberService,DatabaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
