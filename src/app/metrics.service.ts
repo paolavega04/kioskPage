@@ -24,15 +24,15 @@ export class MetricsService {
     {
       name: 'Peso',
       value: null,
-      min: 40,
-      max: 105,
+      min: 40.0,
+      max: 110.0,
       unit: 'kg'
     },
     {
       name: 'IMC',
       value: null,
-      min: 27,
-      max: 32,
+      min: 20.0,
+      max: 32.0,
       unit: 'kg/m2'
     },
     {
@@ -45,7 +45,7 @@ export class MetricsService {
     {
       name: 'Temperatura',
       value: null,
-      min: 36,
+      min: 36.0,
       max: 37.2,
       unit: '°C'
     },
@@ -68,8 +68,8 @@ export class MetricsService {
    {
       name: 'Altura',
       value: null,
-      min: 142,
-      max: 205,
+      min: 1.42,
+      max: 2.00,
       unit: 'mmHg'
     }
 
@@ -81,13 +81,14 @@ export class MetricsService {
   generateRandomValues() {
     console.log('Generating random values...');
     this.variables.forEach((variable) => {
-      if (variable.name === 'Temperatura') {
+      if (variable.name === 'Temperatura' || variable.name === 'Peso' || variable.name === 'Altura' || variable.name === 'IMC') {
         variable.value = +(Math.random() * (variable.max - variable.min) + variable.min).toFixed(1);
       } else {
         variable.value = Math.floor(Math.random() * (variable.max - variable.min + 1) + variable.min);
       }
     });
   }
+  
 
   getVariables(): { }[] {
     return this.variables;

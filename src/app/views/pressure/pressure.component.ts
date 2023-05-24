@@ -20,6 +20,7 @@ export class PressureComponent implements OnInit {
 
   generateRandomMetrics(): void {
     this.metricsService.generateRandomValues();
+    
   }
 
   navigateToMetrics(): void {

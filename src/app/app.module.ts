@@ -16,7 +16,6 @@ import { StorageComponent } from './views/storage/storage.component';
 import { UcontactComponent } from './views/ucontact/ucontact.component';
 import { MetricsComponent } from './views/metrics/metrics.component';
 import { RestorePComponent } from './views/restore-p/restore-p.component';
-import { RandomNumberService } from './random-number.service';
 import { NewPasswordComponent } from './views/new-password/new-password.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -44,7 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     HttpClientModule
   ],
-  providers: [RandomNumberService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
