@@ -81,8 +81,10 @@ export class MetricsService {
   generateRandomValues() {
     console.log('Generating random values...');
     this.variables.forEach((variable) => {
-      if (variable.name === 'Temperatura' || variable.name === 'Peso' || variable.name === 'Altura' || variable.name === 'IMC') {
+      if (variable.name === 'Temperatura' || variable.name === 'Peso') {
         variable.value = +(Math.random() * (variable.max - variable.min) + variable.min).toFixed(1);
+      } else if (variable.name === 'Altura') {
+        variable.value = +(Math.random() * (variable.max - variable.min) + variable.min).toFixed(2);
       } else {
         variable.value = Math.floor(Math.random() * (variable.max - variable.min + 1) + variable.min);
       }
