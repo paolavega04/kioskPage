@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { MetricsService } from 'src/app/metrics.service';
 import { VitalsService } from 'src/app/services_/data_vitals.service';
+import { TimestampService } from 'src/app/services_/timestamp.service';
 
 @Component({
   selector: 'app-pressure',
@@ -10,7 +11,11 @@ import { VitalsService } from 'src/app/services_/data_vitals.service';
   styleUrls: ['./pressure.component.css']
 })
 export class PressureComponent implements OnInit {
-  constructor(private metricsService: MetricsService, private router: Router, private VitalsService: VitalsService ) {  console.log(this.metricsService);}
+  timestamp: Date;
+  constructor(private metricsService: MetricsService, private router: Router, private VitalsService: VitalsService, private timestampService: TimestampService ) { 
+     console.log(this.metricsService);
+     this.timestamp = this.timestampService.getTimestamp();
+    }
 
   ngOnInit(): void { }
 

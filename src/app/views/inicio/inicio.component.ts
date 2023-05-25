@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TimestampService } from 'src/app/services_/timestamp.service';
 
 @Component({
   selector: 'app-inicio',
@@ -7,7 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent {
-  constructor(private router: Router){}  
+  timestamp: Date;
+  
+  constructor(private router: Router, private timestampService: TimestampService){
+    this.timestamp = this.timestampService.getTimestamp();
+  }  
   bmi(){
       this.router.navigate(['bmi']);
     }

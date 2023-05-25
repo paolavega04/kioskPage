@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MetricsService } from 'src/app/metrics.service';
+import { TimestampService } from 'src/app/services_/timestamp.service';
 
 @Component({
   selector: 'app-metrics',
@@ -9,10 +10,12 @@ import { MetricsService } from 'src/app/metrics.service';
 })
 export class MetricsComponent implements OnInit {
   variables: { name: string; min: number; max: number, unit: string, value?: number | null }[] = [];
+  timestamp: Date;
 
-  constructor(private metricsService: MetricsService, private router: Router) {
+  constructor(private metricsService: MetricsService, private router: Router, private timestampService: TimestampService) {
     this.metricsService.variables;
     this.variables = this.metricsService.variables;
+    this.timestamp = this.timestampService.getTimestamp();
   }
   
   ngOnInit(): void {
