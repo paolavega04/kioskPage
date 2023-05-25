@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TimestampService } from 'src/app/services_/timestamp.service';
 
 @Component({
   selector: 'app-auth',
@@ -9,9 +10,12 @@ import { Router } from '@angular/router';
 })
 export class AuthComponent {
     loginForm!: FormGroup;
+    timestamp: Date;
 
-    constructor(private router: Router) {}
-
+    constructor(private router: Router, private timestampService: TimestampService) {
+      this.timestamp = this.timestampService.getTimestamp();
+    }
+    
     ngOnInit(): void {
       this.loginForm = new FormGroup({
         email: new FormControl(''),
