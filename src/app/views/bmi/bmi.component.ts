@@ -8,10 +8,10 @@ import { TimestampService } from 'src/app/services_/timestamp.service';
   styleUrls: ['./bmi.component.css']
 })
 export class BmiComponent {
-  timestamp: Date;
+  timestamp_vitales_dos: Date;
   
   constructor(private router: Router, private timestampService: TimestampService){
-    this.timestamp = this.timestampService.getTimestamp();
+    this.timestamp_vitales_dos = this.timestampService.getTimestamp();
   }  
   pressure(){
       this.router.navigate(['pressure']);

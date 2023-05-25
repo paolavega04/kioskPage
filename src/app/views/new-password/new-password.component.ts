@@ -8,9 +8,9 @@ import { TimestampService } from 'src/app/services_/timestamp.service';
   styleUrls: ['./new-password.component.css']
 })
 export class NewPasswordComponent {
-  timestamp: Date;
+  timestamp_nueva_contrasena: Date;
   constructor(private router: Router,private timestampService: TimestampService) {
-    this.timestamp = this.timestampService.getTimestamp();
+    this.timestamp_nueva_contrasena = this.timestampService.getTimestamp();
   }
     login(){
       this.router.navigate(['login']);

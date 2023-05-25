@@ -8,9 +8,9 @@ import { TimestampService } from 'src/app/services_/timestamp.service';
   styleUrls: ['./storage.component.css']
 })
 export class StorageComponent {
-  timestamp: Date;
+  timestamp_final: Date;
   constructor(private router: Router, private timestampService: TimestampService){
-    this.timestamp = this.timestampService.getTimestamp();
+    this.timestamp_final = this.timestampService.getTimestamp();
   }  
   login(){
       this.router.navigate(['login']);

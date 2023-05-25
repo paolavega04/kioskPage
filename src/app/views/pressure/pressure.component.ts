@@ -11,10 +11,10 @@ import { TimestampService } from 'src/app/services_/timestamp.service';
   styleUrls: ['./pressure.component.css']
 })
 export class PressureComponent implements OnInit {
-  timestamp: Date;
+  timestamp_vitales_tres: Date;
   constructor(private metricsService: MetricsService, private router: Router, private VitalsService: VitalsService, private timestampService: TimestampService ) { 
      console.log(this.metricsService);
-     this.timestamp = this.timestampService.getTimestamp();
+     this.timestamp_vitales_tres = this.timestampService.getTimestamp();
     }
 
   ngOnInit(): void { }

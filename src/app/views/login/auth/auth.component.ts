@@ -10,10 +10,10 @@ import { TimestampService } from 'src/app/services_/timestamp.service';
 })
 export class AuthComponent {
     loginForm!: FormGroup;
-    timestamp: Date;
+    timestamp_login: Date;
 
     constructor(private router: Router, private timestampService: TimestampService) {
-      this.timestamp = this.timestampService.getTimestamp();
+      this.timestamp_login = this.timestampService.getTimestamp();
     }
     
     ngOnInit(): void {

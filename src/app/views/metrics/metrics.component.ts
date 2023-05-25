@@ -10,12 +10,12 @@ import { TimestampService } from 'src/app/services_/timestamp.service';
 })
 export class MetricsComponent implements OnInit {
   variables: { name: string; min: number; max: number, unit: string, value?: number | null }[] = [];
-  timestamp: Date;
+  timestamp_lectura: Date;
 
   constructor(private metricsService: MetricsService, private router: Router, private timestampService: TimestampService) {
     this.metricsService.variables;
     this.variables = this.metricsService.variables;
-    this.timestamp = this.timestampService.getTimestamp();
+    this.timestamp_lectura = this.timestampService.getTimestamp();
   }
   
   ngOnInit(): void {

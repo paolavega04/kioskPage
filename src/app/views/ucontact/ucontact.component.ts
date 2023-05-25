@@ -8,9 +8,9 @@ import { TimestampService } from 'src/app/services_/timestamp.service';
   styleUrls: ['./ucontact.component.css']
 })
 export class UcontactComponent {
-  timestamp: Date;
+  timestamp_registro: Date;
   constructor(private router: Router,private timestampService: TimestampService) {
-    this.timestamp = this.timestampService.getTimestamp();
+    this.timestamp_registro = this.timestampService.getTimestamp();
   }
   salir(){
     this.router.navigate(['login']);

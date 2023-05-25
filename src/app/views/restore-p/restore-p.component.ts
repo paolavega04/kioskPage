@@ -8,10 +8,10 @@ import { TimestampService } from 'src/app/services_/timestamp.service';
   styleUrls: ['./restore-p.component.css']
 })
 export class RestorePComponent {
-  timestamp: Date;
+  timestamp_recuperacion_contrasena: Date;
 
     constructor(private router: Router,private timestampService: TimestampService) {
-      this.timestamp = this.timestampService.getTimestamp();
+      this.timestamp_recuperacion_contrasena = this.timestampService.getTimestamp();
     }
     newp(){
       this.router.navigate(['new-password']);
