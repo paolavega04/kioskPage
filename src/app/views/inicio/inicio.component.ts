@@ -7,7 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent {
-  constructor(private router: Router){}  
+  timestamp = new Date();
+  constructor(private router: Router){
+    this.timestamp = new Date()
+  }  
   bmi(){
       this.router.navigate(['bmi']);
     }

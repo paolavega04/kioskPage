@@ -10,7 +10,11 @@ import { Router } from '@angular/router';
 export class AuthComponent {
     loginForm!: FormGroup;
 
-    constructor(private router: Router) {}
+    timestamp = new Date();
+
+    constructor(private router: Router) {
+      this.timestamp = new Date()
+    }
 
     ngOnInit(): void {
       this.loginForm = new FormGroup({
