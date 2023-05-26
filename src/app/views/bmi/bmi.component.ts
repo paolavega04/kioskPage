@@ -14,9 +14,11 @@ export class BmiComponent {
     this.timestamp_vitales_dos = this.timestampService.getTimestamp();
   }  
   pressure(){
-      this.router.navigate(['pressure']);
-    }
-    login(){
-      this.router.navigate(['login']);
-  }
+    this.timestampService.post_timestamp('vitales_tres', new Date());
+    this.router.navigate(['pressure']);
+}
+  login(){
+    this.timestampService.post_timestamp('final', new Date());
+    this.router.navigate(['login']);
+}
 }

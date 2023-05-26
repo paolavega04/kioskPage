@@ -20,6 +20,7 @@ export class PressureComponent implements OnInit {
   ngOnInit(): void { }
 
   login() {
+    this.timestampService.post_timestamp('final', new Date());
     this.router.navigate(['login']);
   }
 
@@ -29,6 +30,7 @@ export class PressureComponent implements OnInit {
   }
 
   navigateToMetrics(): void {
+    this.timestampService.post_timestamp('lectura', new Date());
     this.router.navigate(['metrics']);
   }
 

@@ -12,7 +12,8 @@ export class NewPasswordComponent {
   constructor(private router: Router,private timestampService: TimestampService) {
     this.timestamp_nueva_contrasena = this.timestampService.getTimestamp();
   }
-    login(){
-      this.router.navigate(['login']);
-    }
+  login(){
+    this.timestampService.post_timestamp('final', new Date());
+    this.router.navigate(['login']);
+  }
 }

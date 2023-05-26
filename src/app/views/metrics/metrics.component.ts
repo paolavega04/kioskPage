@@ -23,6 +23,7 @@ export class MetricsComponent implements OnInit {
   }
 
   storage(){
+    this.timestampService.post_timestamp('storage', new Date());
     this.router.navigate(['storage']);
   }
 }

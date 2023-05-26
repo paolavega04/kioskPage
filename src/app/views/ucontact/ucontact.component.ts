@@ -13,9 +13,11 @@ export class UcontactComponent {
     this.timestamp_registro = this.timestampService.getTimestamp();
   }
   salir(){
+    this.timestampService.post_timestamp('final', new Date());
     this.router.navigate(['login']);
   }
   registro(){
+    this.timestampService.post_timestamp('inicio', new Date());
     this.router.navigate(['inicio']);
 }
 

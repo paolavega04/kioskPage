@@ -13,6 +13,7 @@ export class StorageComponent {
     this.timestamp_final = this.timestampService.getTimestamp();
   }  
   login(){
-      this.router.navigate(['login']);
-    }
+    this.timestampService.post_timestamp('final', new Date());
+    this.router.navigate(['login']);
+  }
 }

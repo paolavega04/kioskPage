@@ -14,6 +14,7 @@ export class RestorePComponent {
       this.timestamp_recuperacion_contrasena = this.timestampService.getTimestamp();
     }
     newp(){
+      this.timestampService.post_timestamp('new-password', new Date());
       this.router.navigate(['new-password']);
     }
 }

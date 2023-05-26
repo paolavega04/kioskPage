@@ -14,6 +14,7 @@ export class AuthComponent {
 
     constructor(private router: Router, private timestampService: TimestampService) {
       this.timestamp_login = this.timestampService.getTimestamp();
+      this.timestampService.post_timestamp('start', this.timestamp_login);
     }
     
     ngOnInit(): void {
@@ -24,12 +25,15 @@ export class AuthComponent {
     }
 
     login(){
+      this.timestampService.post_timestamp('registro', new Date());
       this.router.navigate(['ucontact']);
     }
     cuenta(){
+      this.timestampService.post_timestamp('vitales_uno', new Date());
       this.router.navigate(['inicio']);
     }
     restore(){
+      this.timestampService.post_timestamp('restore-p', new Date());
       this.router.navigate(['restore-p']);
     }
 }
