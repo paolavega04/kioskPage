@@ -13,10 +13,13 @@ const httpOptions = {
 })
 
 
-export class VitalsServiceDes {
+export class VitalsService {
   constructor(private http: HttpClient) {}
-  post_vitalsDes(data: any): Observable<any> {
-    console.log('Sending desen. vitals data:', data);
-    return this.http.post(VITALS_API + 'desensibilizada/vitals/', data, httpOptions);
+  post_vitals(data: any): Observable<any> {
+    console.log('Sending normal vitals data:', data);
+    return this.http.post(VITALS_API + 'vitals/', data, httpOptions);
   }
 }
+
+
+

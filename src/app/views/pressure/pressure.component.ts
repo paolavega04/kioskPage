@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MetricsService } from 'src/app/metrics.service';
-import { VitalsServiceDes } from 'src/app/services_/data_vitals.service';
 
-/*import { VitalsServiceDes } from 'src/app/services_/data_vitals.service';*/
+import { VitalsService } from 'src/app/services_/data_vitals.service_normal';
+import { VitalsServiceDes } from 'src/app/services_/data_vitals.service';
 
 @Component({
   selector: 'app-pressure',
@@ -11,7 +11,7 @@ import { VitalsServiceDes } from 'src/app/services_/data_vitals.service';
   styleUrls: ['./pressure.component.css']
 })
 export class PressureComponent implements OnInit {
-  constructor(private metricsService: MetricsService, private router: Router, private VitalsServiceDes: VitalsServiceDes ) {  console.log(this.metricsService);}
+  constructor(private metricsService: MetricsService, private router: Router, private VitalsService: VitalsService, private VitalsServiceDes: VitalsServiceDes ) {  console.log(this.metricsService);}
 
   ngOnInit(): void { }
 
@@ -27,7 +27,7 @@ export class PressureComponent implements OnInit {
   navigateToMetrics(): void {
     this.router.navigate(['metrics']);
   }
-/*
+
   sendVitals(): void {
     const vitalsData = {
       id_cliente: 1, // Replace with the appropriate value
@@ -58,7 +58,7 @@ export class PressureComponent implements OnInit {
     });
     
   }
-  */
+  
   sendVitalsDes(): void {
     const vitalsDataDes = {
       id_hash: '39a75a33cf356231201163ac544580bb', // Replace with the appropriate value
@@ -95,7 +95,7 @@ export class PressureComponent implements OnInit {
   metrics(): void {
     this.generateRandomMetrics(); // generate random values before navigating to the metrics page
     this.navigateToMetrics();
-    /*this.sendVitals();*/
+    this.sendVitals();
     this.sendVitalsDes();
 
 
