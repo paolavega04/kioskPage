@@ -7,7 +7,7 @@
         </mat-card-header>
             <mat-card-content>  
                 <h4 class="inicio-sesion" style="margin-top: 0.9rem">Inicia sesión o registrate</h4>
-                <form appearance="outline"
+                <form 
                     *ngIf="!isLoggedIn"
                     name="form"
                     (ngSubmit)="f.form.valid && onSubmit()"
@@ -16,7 +16,7 @@
                 >
                     <mat-form-field appearance="outline">
                         <mat-label>Correo electrónico</mat-label>
-                        <input 
+                        <input matInput
                         type="text"
                         class="form-control"
                         name="correo"
@@ -31,7 +31,7 @@
                     </div>
                     <mat-form-field appearance="outline">
                         <mat-label>Contraseña</mat-label>
-                        <input 
+                        <input matInput
                         type="password"
                         class="form-control"
                         name="contrasena"

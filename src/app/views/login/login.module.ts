@@ -5,6 +5,9 @@ import { RouterModule } from '@angular/router';
 import { AngularMaterialsModule } from 'src/app/angular-materials/angular-materials.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 
 
@@ -17,8 +20,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     RouterModule,
     AngularMaterialsModule,
     FormsModule,
-    ReactiveFormsModule,
-    FlexLayoutModule
+    //ReactiveFormsModule,
+    FlexLayoutModule,
+    MatInputModule,
+    MatFormFieldModule
   ]
 })
 export class LoginModule { }

@@ -30,15 +30,8 @@ export class AuthComponent implements OnInit {
 
       if (this.storageService.isLoggedIn()) {
         this.isLoggedIn = true;
-        this.roles = this.storageService.getUser().roles;
         const id_cliente = this.storageService.getUser().id;
-        console.log(this.roles[0]);
-  
-        const pharmacy = ['ROLE_PHARMACY'];
-        const mod = ['ROLE_GOV'];
-
         this.router.navigate(['inicio']);  
-  
         }
     }
   
@@ -75,6 +68,7 @@ export class AuthComponent implements OnInit {
     }
     
     login(): void {
+      this.router.navigate(['ucontact']);  
     }
 
 
