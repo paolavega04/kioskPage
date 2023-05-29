@@ -17,7 +17,8 @@ export class VitalsService {
   constructor(private http: HttpClient) {}
   post_vitals(data: any): Observable<any> {
     console.log('Sending normal vitals data:', data);
-    return this.http.post(VITALS_API + 'vitals/', data, httpOptions);
+
+    return this.http.post(VITALS_API + 'vitals/1', data, httpOptions);
   }
 }
 
