@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { StorageService } from 'src/app/services_/storage.service';
 import { AuthService } from 'src/app/services_/auth.service';
@@ -13,10 +12,10 @@ import { AuthService } from 'src/app/services_/auth.service';
 export class AuthComponent implements OnInit {
     //loginForm!: FormGroup;
 
-    /*form: any = {
+    form: any = {
       correo: null,
       contrasena: null
-    };*/
+    };
 
     isLoggedIn = false;
     isLoginFailed = false;
@@ -24,29 +23,30 @@ export class AuthComponent implements OnInit {
     roles: string[] = [];
 
     constructor(private authService: AuthService, private storageService:StorageService, private router: Router) {}
-    loginForm!:FormGroup;
-
-
+  
+  
     
-    ngOnInit() {
-      this.loginForm = new FormGroup({
-        email: new FormControl(''),
-        psw: new FormControl(''),
-      });
+    ngOnInit(): void {
+
       if (this.storageService.isLoggedIn()) {
         this.isLoggedIn = true;
         this.roles = this.storageService.getUser().roles;
         const id_cliente = this.storageService.getUser().id;
-        this.router.navigate(['inicio']);
-      }
-    }
+        console.log(this.roles[0]);
+  
+        const pharmacy = ['ROLE_PHARMACY'];
+        const mod = ['ROLE_GOV'];
 
-    
-    onSubmit(form: FormGroup) {
-      const email = form.value.email;
-      const psw = form.value.psw
-      
-      this.authService.login(email, psw).subscribe({
+        this.router.navigate(['inicio']);  
+  
+        }
+    }
+  
+  
+    onSubmit(): void {
+      const { correo, contrasena} = this.form;
+  
+      this.authService.login(correo, contrasena).subscribe({
         next: data => {
           this.storageService.saveUser(data);
   
@@ -61,18 +61,21 @@ export class AuthComponent implements OnInit {
         }
       });
     }
-
+  
     reloadPage(): void {
       window.location.reload();
     }
 
-    /*login(){
-      this.router.navigate(['ucontact']);
+
+    cuenta(): void {
     }
-    cuenta(){
-      this.router.navigate(['inicio']);
+
+
+    restore(): void {
     }
-    restore(){
-      this.router.navigate(['restore-p']);
-    }*/
-}
+    
+    login(): void {
+    }
+
+
+  }
