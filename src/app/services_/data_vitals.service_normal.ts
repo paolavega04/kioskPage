@@ -19,10 +19,6 @@ export class VitalsService {
   post_vitals(data: any): Observable<any> {
 
     const id = this.storageService.getUser().id;
-
-
-    console.log('Sending normal vitals data:', data);
-
     return this.http.post(VITALS_API + 'vitals/' + `${id}`, data, httpOptions);
   }
 }

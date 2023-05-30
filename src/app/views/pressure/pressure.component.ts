@@ -71,11 +71,14 @@ export class PressureComponent implements OnInit {
     });
     
   }
+
   
   sendVitalsDes(): void {
+    
+    
     const vitalsDataDes = {
-      id_hash: '39a75a33cf356231201163ac544580bb', // Replace with the appropriate value
-      id_sucursal: 2, // Replace with the appropriate value
+      //id_hash: '39a75a33cf356231201163ac544580bb', // Replace with the appropriate value
+      //id_sucursal: 2, // Replace with the appropriate value
       ritmo_cardiaco: this.metricsService.variables[0].value,
       frecuencia_respiratoria: this.metricsService.variables[1].value,
       peso: this.metricsService.variables[2].value,
