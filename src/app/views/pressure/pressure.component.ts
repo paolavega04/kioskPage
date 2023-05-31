@@ -42,12 +42,12 @@ export class PressureComponent implements OnInit {
       ritmo_cardiaco: String(this.metricsService.variables[0].value),
       frecuencia_respiratoria: String(this.metricsService.variables[1].value),
       peso: String(this.metricsService.variables[2].value),
-      indice_masa_corporal: String(this.metricsService.variables[3].value), // Set the appropriate value or remove this field if not needed
-      saturacion_oxigeno: String(this.metricsService.variables[4].value), // Set the appropriate value or remove this field if not needed
-      temperatura: String(this.metricsService.variables[5].value),
-      presion_sanguinea_sistolica: String(this.metricsService.variables[6].value),
-      presion_sanguinea_diastolica: String(this.metricsService.variables[7].value),
-      altura: String(this.metricsService.variables[8].value), // Set the appropriate value or remove this field if not needed
+      indice_masa_corporal: String(this.metricsService.variables[8].value), // Set the appropriate value or remove this field if not needed
+      saturacion_oxigeno: String(this.metricsService.variables[3].value), // Set the appropriate value or remove this field if not needed
+      temperatura: String(this.metricsService.variables[4].value),
+      presion_sanguinea_sistolica: String(this.metricsService.variables[5].value),
+      presion_sanguinea_diastolica: String(this.metricsService.variables[6].value),
+      altura: String(this.metricsService.variables[7].value), // Set the appropriate value or remove this field if not needed
       zc: this.storageService.getUser().zc1,
       zcPwd: this.storageService.getUser().zc1Pswd,
       derivedKeyPwd: this.storageService.getUser().derivedKeyPswd,
@@ -82,12 +82,12 @@ export class PressureComponent implements OnInit {
       ritmo_cardiaco: this.metricsService.variables[0].value,
       frecuencia_respiratoria: this.metricsService.variables[1].value,
       peso: this.metricsService.variables[2].value,
-      indice_masa_corporal: this.metricsService.variables[3].value, // Set the appropriate value or remove this field if not needed
-      saturacion_oxigeno: this.metricsService.variables[4].value, // Set the appropriate value or remove this field if not needed
-      temperatura: this.metricsService.variables[5].value,
-      presion_sanguinea_sistolica: this.metricsService.variables[6].value,
-      presion_sanguinea_diastolica: this.metricsService.variables[7].value,
-      altura: this.metricsService.variables[8].value // Set the appropriate value or remove this field if not needed
+      indice_masa_corporal: this.metricsService.variables[8].value, // Set the appropriate value or remove this field if not needed
+      saturacion_oxigeno: this.metricsService.variables[3].value, // Set the appropriate value or remove this field if not needed
+      temperatura: this.metricsService.variables[4].value,
+      presion_sanguinea_sistolica: this.metricsService.variables[5].value,
+      presion_sanguinea_diastolica: this.metricsService.variables[6].value,
+      altura: this.metricsService.variables[7].value // Set the appropriate value or remove this field if not needed
     };
 
     this.VitalsServiceDes.post_vitalsDes(vitalsDataDes).subscribe({
