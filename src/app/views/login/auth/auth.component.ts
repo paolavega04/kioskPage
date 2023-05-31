@@ -65,6 +65,7 @@ export class AuthComponent implements OnInit {
 
 
     restore(): void {
+      this.router.navigate(['restore-p']);
     }
     
     login(): void {
