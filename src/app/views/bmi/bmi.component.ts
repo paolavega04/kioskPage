@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { TimestampService } from 'src/app/services_/timestamp.service';
 import { AuthService } from 'src/app/services_/auth.service';
 import { StorageService } from 'src/app/services_/storage.service';
 
@@ -20,7 +20,7 @@ export class BmiComponent {
     this.timestampService.post_timestamp('vitales_tres', new Date());
     this.router.navigate(['pressure']);
     }
-    login(){
+  login(){
       this.timestampService.post_timestamp('final', new Date());
       this.router.navigate(['login']);
   }
@@ -28,6 +28,7 @@ export class BmiComponent {
     this.authService.logout().subscribe({
       next: res => {
         this.storageService.clean();
+        this.timestampService.post_timestamp('final', new Date());
         this.router.navigate(["login"]);
         
       },
