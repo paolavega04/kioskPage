@@ -7,23 +7,62 @@
                 <img class="logo" src="./../assets/images/logo.png" alt="preventip" width="60%" height="60%" />
             </mat-card-title>
         </mat-card-header>
-            <mat-card-content>
+            <mat-card-content>  
                 <h4 class="inicio-sesion" style="margin-top: 0.9rem">Inicia sesión o registrate</h4>
-                <form class="example-form" [formGroup]="loginForm">
+                <form 
+                    *ngIf="!isLoggedIn"
+                    name="form"
+                    (ngSubmit)="f.form.valid && onSubmit()"
+                    #f="ngForm"
+                    novalidate
+                >
                     <mat-form-field appearance="outline">
                         <mat-label>Correo electrónico</mat-label>
-                        <input matInput formControlName="email" placeholder="alguien@example.com">
+                        <input matInput
+                        type="text"
+                        class="form-control"
+                        name="correo"
+                        [(ngModel)]="form.correo"
+                        required
+                        #correo="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && correo.errors }"
+                        />
                     </mat-form-field>
+                    <div *ngIf="correo.errors && f.submitted" class="invalid-feedback">
+                        ¡Se necesita el correo electrónico!
+                    </div>
                     <mat-form-field appearance="outline">
                         <mat-label>Contraseña</mat-label>
-                        <input matInput type="password" formControlName="psw">
+                        <input matInput
+                        type="password"
+                        class="form-control"
+                        name="contrasena"
+                        [(ngModel)]="form.contrasena"
+                        required
+                        minlength="6"
+                        #contrasena="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && contrasena.errors }"
+                        />
                     </mat-form-field>
-                </form>
+                    <div *ngIf="contrasena.errors && f.submitted" class="invalid-feedback">
+                        <div *ngIf="contrasena.errors['required']">Se necesita la contraseña.</div>
+                        <div *ngIf="contrasena.errors['minlength']">
+                          La contraseña  debe de tener al menos 6 caracteres.
+                        </div>
+                      </div>
+                
                 
                 <button (click)="cuenta()" mat-stroked-button class="login-btn">
                     <i aria-hidden="true"></i>
                     Iniciar sesión
                 </button>
+                    <div class="form-group">
+                    <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+                      Falló el inicio de sesión: {{ errorMessage }}
+                    </div>
+                    </div>
+                </form>
+
                 <div class="space">
                 </div>
                 <button (click)="login()" mat-stroked-button  class="login-btn">
@@ -35,7 +74,6 @@
                         <i aria-hidden="true"></i>
                         Olvidé mi contraseña</button>
                 </div>
-                
 
             </mat-card-content>
     </mat-card>

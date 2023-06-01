@@ -18,6 +18,11 @@ import { MetricsComponent } from './views/metrics/metrics.component';
 import { RestorePComponent } from './views/restore-p/restore-p.component';
 import { NewPasswordComponent } from './views/new-password/new-password.component';
 import { HttpClientModule } from '@angular/common/http';
+import { VitalsService } from 'src/app/services_/data_vitals.service_normal';
+
+import { VitalsServiceDes } from 'src/app/services_/data_vitals.service';
+
+
 
 @NgModule({
   declarations: [
@@ -43,7 +48,8 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [VitalsServiceDes,
+              VitalsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

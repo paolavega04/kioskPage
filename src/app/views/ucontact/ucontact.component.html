@@ -3,7 +3,15 @@
   <div class="main-div">
     <mat-card class="form-card">
 
-      <form class="example-form">
+      <form class="example-form"
+        *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+
+
         <h2 class="inicio-sesion">Registro</h2>
 
         <h3 class="indicaciones">Por favor indica toda la información solicitada para poder enviarte tus resultados</h3>
@@ -11,91 +19,237 @@
 
         <mat-form-field appearance="outline" style="width: 29%; margin-right: 1rem">
           <mat-label>Nombre(s)</mat-label>
-          <input matInput />
+          <input matInput 
+          type="text"
+          class="form-control"
+          name="nombre"
+          [(ngModel)]="form.nombre"
+          required
+          minlength="3"
+          maxlength="20"
+          #nombre="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && nombre.errors }"
+          />
+          <div class="invalid-feedback" *ngIf="nombre.errors && f.submitted">
+            <div *ngIf="nombre.errors['required']">Se requiere un usuario</div>
+            <div *ngIf="nombre.errors['minlength']">
+              El nombre debe contener al menos 2 caracteres.
+            </div>
+            <div *ngIf="nombre.errors['maxlength']">
+              El nombre no debe contener más de 20 caracteres.
+            </div>
+          </div>
         </mat-form-field>
+
+
+
         <mat-form-field appearance="outline" style="width: 30%; margin-right: 1rem">
           <mat-label>Apellido Paterno</mat-label>
-          <input matInput />
+          <input matInput 
+          type="text"
+          class="form-control"
+          name="apellido_paterno"
+          [(ngModel)]="form.apellido_paterno"
+          required
+          minlength="2"
+          maxlength="20"
+          #apellido_paterno="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && apellido_paterno.errors }"/>
+          <div class="invalid-feedback" *ngIf="apellido_paterno.errors && f.submitted">
+            <div *ngIf="apellido_paterno.errors['required']">Debe ingresar un apellido.</div>
+            <div *ngIf="apellido_paterno.errors['minlength']">
+              El apellido debe contener al menos 2 caracteres.
+            </div>
+            <div *ngIf="apellido_paterno.errors['maxlength']">
+              El apellido no debe contener más de 20 caracteres.
+            </div>
+          </div>
         </mat-form-field>
+
+
         <mat-form-field appearance="outline" style="width: 29%">
           <mat-label>Apellido Materno</mat-label>
-          <input matInput />
+          <input matInput
+          type="text"
+          class="form-control"
+          name="apellido_materno"
+          [(ngModel)]="form.apellido_materno"
+          maxlength="20"
+          #apellido_materno="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && apellido_materno.errors }" />
+          <div class="invalid-feedback" *ngIf="apellido_materno.errors && f.submitted">
+            <div *ngIf="apellido_materno.errors['maxlength']">
+              El apellido materno no debe contener más de 20 caracteres.
+            </div>
+          </div>
         </mat-form-field>
 
 
 
         <mat-form-field appearance="outline" style="width: 45%; margin-right: 1rem">
           <mat-label>Sexo</mat-label>
-          <mat-select>
-            <mat-option value="one">Femenino</mat-option>
-            <mat-option value="two">Masculino</mat-option>
+          <mat-select
+          class="form-control" name="genero" [(ngModel)]="form.genero">
+            <mat-option value="femenino">Femenino</mat-option>
+            <mat-option value="masculino">Masculino</mat-option>
           </mat-select>
         </mat-form-field>
+
 
         <mat-form-field appearance="outline" style="width: 45%">
           <mat-label>Código postal</mat-label>
-          <input matInput />
+          <input matInput 
+          type="text"
+          class="form-control"
+          name="codigo_postal"
+          [(ngModel)]="form.codigo_postal"
+          required
+          minlength="5"
+          maxlength="5"
+          #codigo_postal="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && codigo_postal.errors }"/>
+          <div class="invalid-feedback" *ngIf="codigo_postal.errors && f.submitted">
+            <div *ngIf="codigo_postal.errors['required']">
+              Se requiere un código postal.
+            </div>
+            <div *ngIf="codigo_postal.errors['minlength']">
+              El código postal debe tener 5 dígitos.
+            </div>
+            <div *ngIf="codigo_postal.errors['maxlength']">
+              El código postal no debe contener más de 10 dígitos.
+            </div>
+          </div>
         </mat-form-field>
+
 
         <mat-form-field appearance="outline" style="width: 45%; margin-right: 1rem">
           <mat-label>Ciudad</mat-label>
-          <input matInput />
+          <input matInput
+          type="text"
+          class="form-control"
+          name="ciudad"
+          [(ngModel)]="form.ciudad"
+          required
+          #ciudad="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted &&  ciudad.errors }" />
+          <div class="invalid-feedback" *ngIf="ciudad.errors && f.submitted">
+            <div *ngIf="ciudad.errors['required']">
+               Se requiere una ciudad.
+            </div>
+          </div>
         </mat-form-field>
+
+
         <mat-form-field appearance="outline" style="width: 45%">
           <mat-label>Estado</mat-label>
-          <mat-select>
-            <mat-option value="1">Aguascalientes</mat-option>
-            <mat-option value="2">Baja California</mat-option>
-            <mat-option value="3">Baja California Sur</mat-option>
-            <mat-option value="4">Campeche</mat-option>
-            <mat-option value="5">Chiapas</mat-option>
-            <mat-option value="6">Chihuahua</mat-option>
-            <mat-option value="7">Coahuila</mat-option>
-            <mat-option value="8">Colima</mat-option>
-            <mat-option value="9">Durango</mat-option>
-            <mat-option value="10">Estado de México</mat-option>
-            <mat-option value="11">Guanajuato</mat-option>
-            <mat-option value="12">Guerrero</mat-option>
-            <mat-option value="13">Hidalgo</mat-option>
-            <mat-option value="14">Jalisco</mat-option>
-            <mat-option value="15">Michoacán</mat-option>
-            <mat-option value="16">Morelos</mat-option>
-            <mat-option value="17">Nayarit</mat-option>
-            <mat-option value="18">Nuevo León</mat-option>
-            <mat-option value="19">Oaxaca</mat-option>
-            <mat-option value="20">Puebla</mat-option>
-            <mat-option value="21">Querétaro</mat-option>
-            <mat-option value="22">Quintana Roo</mat-option>
-            <mat-option value="23">San Luis Potosí</mat-option>
-            <mat-option value="24">Sinaloa</mat-option>
-            <mat-option value="25">Sonora</mat-option>
-            <mat-option value="26">Tabasco</mat-option>
-            <mat-option value="27">Tamaulipas</mat-option>
-            <mat-option value="28">Tlaxcala</mat-option>
-            <mat-option value="29">Veracruz</mat-option>
-            <mat-option value="30">Yucatán</mat-option>
-            <mat-option value="31">Zacatecas</mat-option>
+          <mat-select class="form-control" name="estado" [(ngModel)]="form.estado">
+            <mat-option value="Aguascalientes">Aguascalientes</mat-option>
+            <mat-option value="Baja California">Baja California</mat-option>
+            <mat-option value="Baja California Sur">Baja California Sur</mat-option>
+            <mat-option value="Campeche">Campeche</mat-option>
+            <mat-option value="Chiapas">Chiapas</mat-option>
+            <mat-option value="Chihuahua">Chihuahua</mat-option>
+            <mat-option value="Coahuila">Coahuila</mat-option>
+            <mat-option value="Colima">Colima</mat-option>
+            <mat-option value="Durango">Durango</mat-option>
+            <mat-option value="Estado de México">Estado de México</mat-option>
+            <mat-option value="Guanajuato">Guanajuato</mat-option>
+            <mat-option value="Guerrero">Guerrero</mat-option>
+            <mat-option value="Hidalgo">Hidalgo</mat-option>
+            <mat-option value="Jalisco">Jalisco</mat-option>
+            <mat-option value="Michoacán">Michoacán</mat-option>
+            <mat-option value="Morelos">Morelos</mat-option>
+            <mat-option value="Nayarit">Nayarit</mat-option>
+            <mat-option value="Nuevo León">Nuevo León</mat-option>
+            <mat-option value="Oaxaca">Oaxaca</mat-option>
+            <mat-option value="Puebla">Puebla</mat-option>
+            <mat-option value="Querétaro">Querétaro</mat-option>
+            <mat-option value="Quintana Roo">Quintana Roo</mat-option>
+            <mat-option value="San Luis Potosí">San Luis Potosí</mat-option>
+            <mat-option value="Sinaloa">Sinaloa</mat-option>
+            <mat-option value="Sonora">Sonora</mat-option>
+            <mat-option value="Tabasco">Tabasco</mat-option>
+            <mat-option value="Tamaulipas">Tamaulipas</mat-option>
+            <mat-option value="Tlaxcala">Tlaxcala</mat-option>
+            <mat-option value="Veracruz">Veracruz</mat-option>
+            <mat-option value="Yucatán">Yucatán</mat-option>
+            <mat-option value="Zacatecas">Zacatecas</mat-option>
           </mat-select>
         </mat-form-field>
 
+
         <mat-form-field appearance="outline" style="width: 45%; margin-right: 1rem">
           <mat-label>Correo</mat-label>
-          <input matInput />
+          <input matInput 
+          type="email"
+          class="form-control"
+          name="email"
+          [(ngModel)]="form.correo"
+          required
+          email
+          #email="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && email.errors }"/>
+          <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+            <div *ngIf="email.errors['required']">
+              Se requiere un correo electrónico.
+            </div>
+            <div *ngIf="email.errors['email']">
+              La dirección del correo electrónica debe ser válida.
+            </div>
+          </div>
         </mat-form-field>
+
+
         <mat-form-field appearance="outline" style="width: 45%">
           <mat-label>Teléfono</mat-label>
-          <input matInput />
+          <input matInput
+          type="text"
+          class="form-control"
+          name="telefono"
+          [(ngModel)]="form.telefono"
+          required
+          minlength="10"
+          maxlength="10"
+          #telefono="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && telefono.errors }" />
+          <div class="invalid-feedback" *ngIf="telefono.errors && f.submitted">
+            <div *ngIf="telefono.errors['required']">
+              Se requiere un número telefónico.
+            </div>
+            <div *ngIf="telefono.errors['minlength']">
+              El número telefónico debe tener 10 dígitos.
+            </div>
+            <div *ngIf="telefono.errors['maxlength']">
+              El teléfono no debe contener más de 10 dígitos.
+            </div>
+          </div>
         </mat-form-field>
 
 
         <mat-form-field appearance="outline" style="width: 45%; margin-right: 1rem">
           <mat-label>Año nacimiento</mat-label>
-          <input matInput />
+          <input matInput 
+          type="text"
+          class="form-control"
+          name="a_nacimiento"
+          [(ngModel)]="form.a_nacimiento"
+          required
+          #a_nacimiento="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && a_nacimiento.errors }"/>
+          <div class="invalid-feedback" *ngIf="a_nacimiento.errors && f.submitted">
+            <div *ngIf="a_nacimiento.errors['required']">
+               Por favor ingrese su fecha de nacimiento.</div>
+          </div>
         </mat-form-field>
+
+
+
         <mat-form-field appearance="outline" style="width: 45%">
           <mat-label>Programa estatal</mat-label>
           <input matInput />
         </mat-form-field>
+
+
 
         <h5 class="division_formulario">Padecimientos</h5>
         <h5 class="indicaciones-basic">
@@ -121,23 +275,127 @@
 
         <mat-form-field appearance="outline" style="width: 90%">
           <mat-label>Pregunta seguridad</mat-label>
-          <mat-select>
-            <mat-option value="one">p1</mat-option>
-            <mat-option value="two">p2</mat-option>
+          <mat-select class="form-control" name="pregunta_seguridad" [(ngModel)]="form.pregunta_seguridad">
+            <mat-option value="1">¿Cuál es el nombre de tu primer mascota?</mat-option>
+            <mat-option value="2">¿A qué secundaria fuiste?</mat-option>
+            <mat-option value="3">¿Cuál es tu equipo deportivo favorito?</mat-option>
+            <mat-option value="4">¿Cuál es tu color favorito?</mat-option>
+            <mat-option value="5">¿En qué ciudad nació tu papá?</mat-option>
+            <mat-option value="6">¿Quién es el héroe de tu infancia?</mat-option>
+            <mat-option value="7">¿Cómo decían de pequeño?</mat-option>
+            <mat-option value="8">¿Cuál es tu comida favorita?</mat-option>
+            <mat-option value="9">¿Cuál es tu película favorita?</mat-option>
           </mat-select>
         </mat-form-field>
+
+
         <mat-form-field appearance="outline" style="width: 90%">
           <mat-label>Respuesta</mat-label>
-          <input matInput />
+          <input matInput 
+          type="text"
+          class="form-control"
+          name="respuesta_seguridad"
+          [(ngModel)]="form.respuesta_seguridad"
+          required
+          #respuesta_seguridad="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted &&  respuesta_seguridad.errors }"/>
+          <div class="invalid-feedback" *ngIf="respuesta_seguridad.errors && f.submitted">
+            <div *ngIf="respuesta_seguridad.errors['required']">
+               Se requiere una respuesta.
+            </div>
+          </div>
         </mat-form-field>
 
         <h5 class="division_formulario">Contraseña de usuario</h5>
         <mat-form-field appearance="outline" style="width: 90%">
           <mat-label>Contraseña</mat-label>
-          <input matInput />
+          <input matInput
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.contrasena"
+          required
+          minlength="6"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }" />
+          <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+            <div *ngIf="password.errors['required']">
+              Se requiere contraseña.
+            </div>
+            <div *ngIf="password.errors['minlength']">
+              La contraseña debe de tener al menos 6 caracteres.
+            </div>
+          </div>
         </mat-form-field>
+
+        <script>
+          var myInput = document.getElementById("psw");
+          var letter = document.getElementById("letter");
+          var capital = document.getElementById("capital");
+          var number = document.getElementById("number");
+          var length = document.getElementById("length");
+          
+          // When the user clicks on the password field, show the message box
+          myInput.onfocus = function() {
+            document.getElementById("message").style.display = "block";
+          }
+          
+          // When the user clicks outside of the password field, hide the message box
+          myInput.onblur = function() {
+            document.getElementById("message").style.display = "none";
+          }
+          
+          // When the user starts to type something inside the password field
+          myInput.onkeyup = function() {
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if(myInput.value.match(lowerCaseLetters)) {
+              letter.classList.remove("invalid");
+              letter.classList.add("valid");
+            } else {
+              letter.classList.remove("valid");
+              letter.classList.add("invalid");
+          }
+          
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if(myInput.value.match(upperCaseLetters)) {
+              capital.classList.remove("invalid");
+              capital.classList.add("valid");
+            } else {
+              capital.classList.remove("valid");
+              capital.classList.add("invalid");
+            }
+          
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if(myInput.value.match(numbers)) {
+              number.classList.remove("invalid");
+              number.classList.add("valid");
+            } else {
+              number.classList.remove("valid");
+              number.classList.add("invalid");
+            }
+          
+            // Validate length
+            if(myInput.value.length >= 8) {
+              length.classList.remove("invalid");
+              length.classList.add("valid");
+            } else {
+              length.classList.remove("valid");
+              length.classList.add("invalid");
+            }
+          }
+          </script>
+
+
+
         <mat-form-field appearance="outline" style="width: 90%">
-          <mat-label>Confirmar contraseña</mat-label>
+          <mat-label
+          type="password"
+          class="form-control"
+          name="password">Confirmar contraseña</mat-label>
           <input matInput />
         </mat-form-field>
 
@@ -145,49 +403,244 @@
         <h5 class="indicaciones-basic">
           En esta sección escribe la información de la persona con la que deseas compartir tus datos
         </h5>
+
+
         <mat-form-field appearance="outline" style="width: 45%; margin-right: 1rem">
           <mat-label>Nombre(s)</mat-label>
-          <input matInput />
+          <input matInput
+          type="text"
+          class="form-control"
+          name="nombre_contacto_confianza"
+          [(ngModel)]="form.nombre_contacto_confianza"
+          required
+          minlength="3"
+          maxlength="20"
+          #nombre_contacto_confianza="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && nombre_contacto_confianza.errors }" />
+          <div class="invalid-feedback" *ngIf="nombre_contacto_confianza.errors && f.submitted">
+            <div *ngIf="nombre_contacto_confianza.errors['required']">Se requiere un usuario</div>
+            <div *ngIf="nombre_contacto_confianza.errors['minlength']">
+              El nombre debe contener al menos 2 caracteres.
+            </div>
+            <div *ngIf="nombre_contacto_confianza.errors['maxlength']">
+              El nombre no debe contener más de 20 caracteres.
+            </div>
+          </div>
         </mat-form-field>
+
+
         <mat-form-field appearance="outline" style="width: 45%">
           <mat-label>Apellido Paterno</mat-label>
-          <input matInput />
+          <input matInput 
+          type="text"
+          class="form-control"
+          name="apellido_paterno_contacto_confianza"
+          [(ngModel)]="form.apellido_paterno_contacto_confianza"
+          required
+          minlength="2"
+          maxlength="20"
+          #apellido_paterno_contacto_confianza="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && apellido_paterno_contacto_confianza.errors }"/>
+          <div class="invalid-feedback" *ngIf="apellido_paterno_contacto_confianza.errors && f.submitted">
+            <div *ngIf="apellido_paterno_contacto_confianza.errors['required']">Debe ingresar un apellido.</div>
+            <div *ngIf="apellido_paterno_contacto_confianza.errors['minlength']">
+              El apellido debe contener al menos 2 caracteres.
+            </div>
+            <div *ngIf="apellido_paterno_contacto_confianza.errors['maxlength']">
+              El apellido no debe contener más de 20 caracteres.
+            </div>
+          </div>
         </mat-form-field>
+
 
         <mat-form-field appearance="outline" style="width: 45%; margin-right: 1rem">
           <mat-label>Apellido Materno</mat-label>
-          <input matInput />
+          <input matInput 
+          type="text"
+          class="form-control"
+          name="apellido_materno_contacto_confianza"
+          [(ngModel)]="form.apellido_materno_contacto_confianza"
+          maxlength="20"
+          #apellido_materno_contacto_confianza="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && apellido_materno_contacto_confianza.errors }"/>
+          <div class="invalid-feedback" *ngIf="apellido_materno_contacto_confianza.errors && f.submitted">
+            <div *ngIf="apellido_materno_contacto_confianza.errors['maxlength']">
+              El apellido materno no debe contener más de 20 caracteres.
+            </div>
+          </div>
         </mat-form-field>
+
 
         <mat-form-field appearance="outline" style="width: 45%">
           <mat-label>Teléfono</mat-label>
-          <input matInput />
+          <input matInput 
+          type="text"
+          class="form-control"
+          name="tel_contacto_confianza"
+          [(ngModel)]="form.tel_contacto_confianza"
+          required
+          minlength="10"
+          maxlength="10"
+          #tel_contacto_confianza="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && tel_contacto_confianza.errors }"/>
+          <div class="invalid-feedback" *ngIf="tel_contacto_confianza.errors && f.submitted">
+            <div *ngIf="tel_contacto_confianza.errors['required']">
+              Se requiere un número telefónico.
+            </div>
+            <div *ngIf="tel_contacto_confianza.errors['minlength']">
+              El número telefónico debe tener 10 dígitos.
+            </div>
+            <div *ngIf="tel_contacto_confianza.errors['maxlength']">
+              El número telefónico no debe contener más de 10 dígitos.
+            </div>
+          </div>
         </mat-form-field>
+
 
         <mat-form-field appearance="outline" style="width: 92%">
           <mat-label>Correo</mat-label>
-          <input matInput />
+          <input matInput 
+          type="email"
+          class="form-control"
+          name="email"
+          [(ngModel)]="form.correo_contacto_confianza"
+          required
+          email
+          #correo_contacto_confianza="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && correo_contacto_confianza.errors }"/>
+          <div class="invalid-feedback" *ngIf="correo_contacto_confianza.errors && f.submitted">
+            <div *ngIf="correo_contacto_confianza.errors['required']">
+              Se requiere un correo electrónico.
+            </div>
+            <div *ngIf="correo_contacto_confianza.errors['email']">
+              La dirección del correo electrónica debe ser válida.
+            </div>
+          </div>
         </mat-form-field>
+
 
         <h5 class="division_formulario">Pregunta de seguridad de contacto de confianza</h5>
 
         <mat-form-field appearance="outline" style="width: 90%">
           <mat-label>Pregunta seguridad </mat-label>
           <mat-select>
-            <mat-option value="one">p1</mat-option>
-            <mat-option value="two">p2</mat-option>
+            <mat-option value="1">¿Cuál es el nombre de tu primer mascota?</mat-option>
+            <mat-option value="2">¿A qué secundaria fuiste?</mat-option>
+            <mat-option value="3">¿Cuál es tu equipo deportivo favorito?</mat-option>
+            <mat-option value="4">¿Cuál es tu color favorito?</mat-option>
+            <mat-option value="5">¿En qué ciudad nació tu papá?</mat-option>
+            <mat-option value="6">¿Quién es el héroe de tu infancia?</mat-option>
+            <mat-option value="7">¿Cómo decían de pequeño?</mat-option>
+            <mat-option value="8">¿Cuál es tu comida favorita?</mat-option>
+            <mat-option value="9">¿Cuál es tu película favorita?</mat-option>
           </mat-select>
         </mat-form-field>
+
+
         <mat-form-field appearance="outline" style="width: 90%">
           <mat-label>Respuesta</mat-label>
-          <input matInput />
+          <input matInput
+          type="text"
+          class="form-control"
+          name="respuesta_seguridad_contacto"
+          [(ngModel)]="form.respuesta_seguridad_contacto"
+          required
+          #respuesta_seguridad_contacto="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted &&  respuesta_seguridad_contacto.errors }" />
+          <div class="invalid-feedback" *ngIf="respuesta_seguridad.errors && f.submitted">
+            <div *ngIf="respuesta_seguridad.errors['required']">
+               Se requiere una respuesta.
+            </div>
+          </div>
         </mat-form-field>
 
         <h5 class="division_formulario">Contraseña de contacto de confianza</h5>
         <mat-form-field appearance="outline" style="width: 90%">
-          <mat-label>Contraseña</mat-label>
-          <input matInput />
+          <mat-label
+          type="password"
+          class="form-control"
+          name="password">Contraseña</mat-label>
+          <input matInput 
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.contrasena_contacto_confianza"
+          required
+          minlength="6"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"/>
+          <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+            <div *ngIf="password.errors['required']">
+              Se requiere contraseña.
+            </div>
+            <div *ngIf="password.errors['minlength']">
+              La contraseña debe de tener al menos 6 caracteres.
+            </div>
+          </div>
         </mat-form-field>
+
+        <script>
+          var myInput = document.getElementById("psw");
+          var letter = document.getElementById("letter");
+          var capital = document.getElementById("capital");
+          var number = document.getElementById("number");
+          var length = document.getElementById("length");
+          
+          // When the user clicks on the password field, show the message box
+          myInput.onfocus = function() {
+            document.getElementById("message").style.display = "block";
+          }
+          
+          // When the user clicks outside of the password field, hide the message box
+          myInput.onblur = function() {
+            document.getElementById("message").style.display = "none";
+          }
+          
+          // When the user starts to type something inside the password field
+          myInput.onkeyup = function() {
+            // Validate lowercase letters
+            var lowerCaseLetters = /[a-z]/g;
+            if(myInput.value.match(lowerCaseLetters)) {
+              letter.classList.remove("invalid");
+              letter.classList.add("valid");
+            } else {
+              letter.classList.remove("valid");
+              letter.classList.add("invalid");
+          }
+          
+            // Validate capital letters
+            var upperCaseLetters = /[A-Z]/g;
+            if(myInput.value.match(upperCaseLetters)) {
+              capital.classList.remove("invalid");
+              capital.classList.add("valid");
+            } else {
+              capital.classList.remove("valid");
+              capital.classList.add("invalid");
+            }
+          
+            // Validate numbers
+            var numbers = /[0-9]/g;
+            if(myInput.value.match(numbers)) {
+              number.classList.remove("invalid");
+              number.classList.add("valid");
+            } else {
+              number.classList.remove("valid");
+              number.classList.add("invalid");
+            }
+          
+            // Validate length
+            if(myInput.value.length >= 8) {
+              length.classList.remove("invalid");
+              length.classList.add("valid");
+            } else {
+              length.classList.remove("valid");
+              length.classList.add("invalid");
+            }
+          }
+          </script>
+
+
         <mat-form-field appearance="outline" style="width: 90%">
           <mat-label>Confirmar contraseña</mat-label>
           <input matInput />
@@ -201,7 +654,8 @@
            </button> 
            <div class="space">
            </div>
-           <button (click)="registro()" mat-stroked-button  class="login-button">
+
+           <button type="submit" mat-stroked-button  class="login-button">
             <i aria-hidden="true"></i>
             Registrar
             </button> 
