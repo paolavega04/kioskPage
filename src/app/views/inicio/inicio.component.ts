@@ -19,6 +19,10 @@ export class InicioComponent {
     this.timestampService.post_timestamp('vitales_dos', new Date());
     this.router.navigate(['bmi']);
   }
+  login(){
+    this.timestampService.post_timestamp('final', new Date());
+    this.router.navigate(['login']);
+}
   isLoggedIn = false;
   logout(): void {
     this.authService.logout().subscribe({
