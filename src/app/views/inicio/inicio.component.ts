@@ -11,6 +11,20 @@ import { StorageService } from 'src/app/services_/storage.service';
 })
 export class InicioComponent {
   constructor(private router: Router, private storageService: StorageService, private authService: AuthService){}  
+  nombre = this.storageService.getUser().nombre;
+  gender = this.storageService.getUser().gender;
+
+  verify_gender(){
+    var saludo = 'Bienvenid';
+    if(this.gender == 'masculino'){
+       saludo = saludo + 'o';
+    } else {
+      saludo = saludo + 'a';
+    }
+    return saludo;
+  }
+  
+
   bmi(){
       this.router.navigate(['bmi']);
     }

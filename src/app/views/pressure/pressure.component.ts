@@ -20,6 +20,8 @@ export class PressureComponent implements OnInit {
      private storageService: StorageService,
      private authService: AuthService ) {  console.log(this.metricsService);}
 
+     nombre = this.storageService.getUser().nombre;
+
   ngOnInit(): void { }
 
   login() {

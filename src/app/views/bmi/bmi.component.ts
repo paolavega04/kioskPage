@@ -11,6 +11,7 @@ import { StorageService } from 'src/app/services_/storage.service';
   styleUrls: ['./bmi.component.css']
 })
 export class BmiComponent {
+  nombre = this.storageService.getUser().nombre;
   constructor(private router: Router, private authService: AuthService, private storageService: StorageService){}  
   pressure(){
       this.router.navigate(['pressure']);
