@@ -13,7 +13,7 @@ export class MetricsService {
       name: 'Ritmo Cardíaco',
       value: null,
       min: 50,
-      max: 120,
+      max: 111,
       unit: 'bpm'
     },
     {
@@ -88,58 +88,99 @@ export class MetricsService {
     // Get the user's gender from the storage service
     const user = this.storageService.getUser();
     const genero = user.genero; // Assuming the gender property is present in the user object
+    const padecimiento = user.padecimiento; //Asuming null, 1, 2 as Normal, Diabetes Type 2, Hipertension
   
     this.variables.forEach((variable) => {
-      if (variable.name === 'Temperatura') {
-        variable.value = +(this.generateRandomFromDistribution(variable.min, variable.max, 1, 36.6, 0.6)).toFixed(1);
-      } else if (variable.name === 'Altura') {
-        if (genero === 'femenino') {
-          variable.min = 1.40;  // Adjust the minimum height value for females
-          variable.max = 1.81;  // Adjust the maximum height value for females
-          const [average, standardDeviation] = [1.55, 0.05];
-          variable.value = +(this.generateRandomFromDistribution(variable.min, variable.max, 2, average, standardDeviation)).toFixed(2);
-        } else if (genero === 'masculino') {
-          variable.min = 1.54;  // Adjust the minimum height value for males
-          variable.max = 1.92;  // Adjust the maximum height value for males
-          const [average, standardDeviation] = [1.67, 0.05];
-          variable.value = +(this.generateRandomFromDistribution(variable.min, variable.max, 2, average, standardDeviation)).toFixed(2);
+      
+        if (variable.name === 'Temperatura') {
+          variable.value = +(this.generateRandomFromDistribution(variable.min, variable.max, 1, 36.6, 0.6)).toFixed(1);
+        } else if (variable.name === 'Altura') {
+          if (genero === 'femenino') {
+            variable.min = 1.40;  // Adjust the minimum height value for females
+            variable.max = 1.81;  // Adjust the maximum height value for females
+            const [average, standardDeviation] = [1.55, 0.05];
+            variable.value = +(this.generateRandomFromDistribution(variable.min, variable.max, 2, average, standardDeviation)).toFixed(2);
+          } else if (genero === 'masculino') {
+            variable.min = 1.54;  // Adjust the minimum height value for males
+            variable.max = 1.92;  // Adjust the maximum height value for males
+            const [average, standardDeviation] = [1.67, 0.05];
+            variable.value = +(this.generateRandomFromDistribution(variable.min, variable.max, 2, average, standardDeviation)).toFixed(2);
+          }
+        } else if (variable.name === 'Peso') {
+          if (genero === 'femenino') {
+            variable.min = 45.2;  // Adjust the minimum weight value for females
+            variable.max = 85.8;  // Adjust the maximum weight value for females
+            const [average, standardDeviation] = [67.7, 3];
+            variable.value = +(this.generateRandomFromDistribution(variable.min, variable.max, 1, average, standardDeviation)).toFixed(1);
+          } else if (genero === 'masculino') {
+            variable.min = 50.9;  // Adjust the minimum weight value for males
+            variable.max = 92.1; // Adjust the maximum weight value for males
+            const [average, standardDeviation] = [76.45, 3];
+            variable.value = +(this.generateRandomFromDistribution(variable.min, variable.max, 1, average, standardDeviation)).toFixed(1);
+          }
+        } else if (variable.name === 'IMC') {
+         const peso = this.variables.find((v) => v.name === 'Peso')?.value || 0;
+         const altura = this.variables.find((v) => v.name === 'Altura')?.value || 0;
+         variable.value = +(peso / (altura ** 2)).toFixed(1);
+        
+        } else if (variable.name === 'Ritmo Cardíaco') {
+          if (padecimiento === null) {
+            const [average, standardDeviation] = [80, 20];
+            variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
+          } else if (padecimiento === 1){
+            const [average, standardDeviation] = [71.4, 12.5];
+            variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
+          }
+          else if (padecimiento === 2){
+            const [average, standardDeviation] = [65, 4];
+            variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
+          }
+        } else if (variable.name === 'Saturación de Oxígeno') {
+          if (padecimiento === null) {
+            const [average, standardDeviation] = [90, 5];
+            variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
+          } else if (padecimiento === 1){
+            const [average, standardDeviation] = [96.4, 1.6];
+            variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
+          } else if (padecimiento === 2){
+            const [average, standardDeviation] = [95, 1.33];
+            variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
+          }
+        } else if (variable.name === 'Presión Sistólica') {
+          if (padecimiento === null) {
+            const [average, standardDeviation] = [150, 20];
+            variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
+          } else if (padecimiento === 1){
+             const [average, standardDeviation] = [142.3, 7.5];
+             variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
+          } else if (padecimiento === 2){
+             const [average, standardDeviation] = [120, 5];
+             variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
+          }
+        } else if (variable.name === 'Presión Diastólica') {
+          if (padecimiento === null) {
+            const [average, standardDeviation] = [85, 5];
+            variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
+          } else if (padecimiento === 1){
+            const [average, standardDeviation] = [77.5, 9.6];
+            variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
+          } else if (padecimiento === 2){
+            const [average, standardDeviation] = [78, 3];
+            variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
+          }
+        } else if (variable.name === 'Frecuencia Respiratoria') {
+          if (padecimiento === null) {
+            const [average, standardDeviation] = [14.8, 4.28];
+            variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
+          } else if (padecimiento === 1 || padecimiento === 2) {
+            const [average, standardDeviation] = [15.5, 2];
+            variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
+          } 
+        } else {
+          variable.value = Math.floor(Math.random() * (variable.max - variable.min + 1) + variable.min);
         }
-      } else if (variable.name === 'Peso') {
-        if (genero === 'femenino') {
-          variable.min = 45.2;  // Adjust the minimum weight value for females
-          variable.max = 85.8;  // Adjust the maximum weight value for females
-          const [average, standardDeviation] = [67.7, 3];
-          variable.value = +(this.generateRandomFromDistribution(variable.min, variable.max, 1, average, standardDeviation)).toFixed(1);
-        } else if (genero === 'masculino') {
-          variable.min = 50.9;  // Adjust the minimum weight value for males
-          variable.max = 92.1; // Adjust the maximum weight value for males
-          const [average, standardDeviation] = [76.45, 3];
-          variable.value = +(this.generateRandomFromDistribution(variable.min, variable.max, 1, average, standardDeviation)).toFixed(1);
-        }
-      } else if (variable.name === 'IMC') {
-        const peso = this.variables.find((v) => v.name === 'Peso')?.value || 0;
-        const altura = this.variables.find((v) => v.name === 'Altura')?.value || 0;
-        variable.value = +(peso / (altura ** 2)).toFixed(1);
-      } else if (variable.name === 'Ritmo Cardíaco') {
-        const [average, standardDeviation] = [80, 20];
-        variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
-      } else if (variable.name === 'Saturación de Oxígeno') {
-        const [average, standardDeviation] = [90, 5];
-        variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
-      } else if (variable.name === 'Presión Sistólica') {
-        const [average, standardDeviation] = [150, 20];
-        variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
-      } else if (variable.name === 'Presión Diastólica') {
-        const [average, standardDeviation] = [85, 5];
-        variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
-      } else if (variable.name === 'Frecuencia Respiratoria') {
-          const [average, standardDeviation] = [14.8, 4.28];
-          variable.value = Math.floor(this.generateRandomFromDistribution(variable.min, variable.max, 2, average, standardDeviation));
-      } else {
-        variable.value = Math.floor(Math.random() * (variable.max - variable.min + 1) + variable.min);
-      }
-    });
-  }
+      });
+    }
   
   
   generateRandomFromDistribution(min: number, max: number, decimals: number, average: number, standardDeviation: number): number {
