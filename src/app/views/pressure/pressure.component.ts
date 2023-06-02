@@ -48,12 +48,6 @@ export class PressureComponent implements OnInit {
       presion_sanguinea_sistolica: String(this.metricsService.variables[5].value),
       presion_sanguinea_diastolica: String(this.metricsService.variables[6].value),
       altura: String(this.metricsService.variables[7].value), // Set the appropriate value or remove this field if not needed
-      zc: this.storageService.getUser().zc1,
-      zcPwd: this.storageService.getUser().zc1Pswd,
-      derivedKeyPwd: this.storageService.getUser().derivedKeyPswd,
-      ivPwd: this.storageService.getUser().ivPswd,
-      saltPrivada: this.storageService.getUser().saltPrivada,
-      ivUsuario:this.storageService.getUser().ivUsuario
     };
     this.VitalsService.post_vitals(vitalsData).subscribe({
       next: (response) => {
@@ -113,8 +107,6 @@ export class PressureComponent implements OnInit {
     this.navigateToMetrics();
     this.sendVitals();
     this.sendVitalsDes();
-
-
   }
 
   logout(): void {
