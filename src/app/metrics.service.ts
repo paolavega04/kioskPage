@@ -125,13 +125,16 @@ export class MetricsService {
         
         } else if (variable.name === 'Ritmo Cardíaco') {
           if (padecimiento === null) {
+            console.log('normal');
             const [average, standardDeviation] = [80, 20];
             variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
           } else if (padecimiento === 1){
+            console.log('diabetes');
             const [average, standardDeviation] = [71.4, 12.5];
             variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
           }
           else if (padecimiento === 2){
+            console.log('hipertension');
             const [average, standardDeviation] = [65, 4];
             variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
           }
