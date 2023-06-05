@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MetricsService } from 'src/app/metrics.service';
+import { MetricsService } from 'src/app/services_/metrics.service';
 
 @Component({
   selector: 'app-metrics',

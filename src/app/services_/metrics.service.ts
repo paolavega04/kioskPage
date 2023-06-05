@@ -124,22 +124,23 @@ export class MetricsService {
          variable.value = +(peso / (altura ** 2)).toFixed(1);
         
         } else if (variable.name === 'Ritmo Cardíaco') {
-          if (padecimiento === null) {
-            console.log('normal');
+          if (padecimiento === null || padecimiento > 2) {
+            console.log(' Normal');
+
             const [average, standardDeviation] = [80, 20];
             variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
           } else if (padecimiento === 1){
-            console.log('diabetes');
+            console.log(' Diabetes II');
             const [average, standardDeviation] = [71.4, 12.5];
             variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
           }
           else if (padecimiento === 2){
-            console.log('hipertension');
+            console.log(' Hipertension');
             const [average, standardDeviation] = [65, 4];
             variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
           }
         } else if (variable.name === 'Saturación de Oxígeno') {
-          if (padecimiento === null) {
+          if (padecimiento === null || padecimiento > 2) {
             const [average, standardDeviation] = [90, 5];
             variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
           } else if (padecimiento === 1){
@@ -150,7 +151,7 @@ export class MetricsService {
             variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
           }
         } else if (variable.name === 'Presión Sistólica') {
-          if (padecimiento === null) {
+          if (padecimiento === null || padecimiento > 2) {
             const [average, standardDeviation] = [150, 20];
             variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
           } else if (padecimiento === 1){
@@ -161,7 +162,7 @@ export class MetricsService {
              variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
           }
         } else if (variable.name === 'Presión Diastólica') {
-          if (padecimiento === null) {
+          if (padecimiento === null || padecimiento > 2) {
             const [average, standardDeviation] = [85, 5];
             variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
           } else if (padecimiento === 1){
@@ -172,7 +173,7 @@ export class MetricsService {
             variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
           }
         } else if (variable.name === 'Frecuencia Respiratoria') {
-          if (padecimiento === null) {
+          if (padecimiento === null || padecimiento > 2) {
             const [average, standardDeviation] = [14.8, 4.28];
             variable.value = this.generateRandomFromDistribution(variable.min, variable.max, 0, average, standardDeviation);
           } else if (padecimiento === 1 || padecimiento === 2) {
