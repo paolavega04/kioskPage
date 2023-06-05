@@ -245,12 +245,16 @@
 
         <mat-form-field appearance="outline" style="width: 45%">
           <mat-label>Programa estatal</mat-label>
-          <input matInput />
+          <input matInput 
+          type="text"
+          class="form-control"
+          name="plan_estatal"
+          [(ngModel)]="form.plan_estatal"/>
         </mat-form-field>
 
 
 
-        <h5 class="division_formulario">Padecimientos</h5>
+        <!--<h5 class="division_formulario">Padecimientos</h5>
         <h5 class="indicaciones-basic">
           Por favor indica todos los padecimientos que tengas
         </h5>
@@ -267,7 +271,26 @@
           <mat-checkbox class="example-margin">Fibrilación Auricular</mat-checkbox>
           <mat-checkbox class="example-margin">Hipotiroidismo</mat-checkbox>
 
-        </section>
+        </section>-->
+        
+          
+          <h5 class="division_formulario">Padecimientos</h5>
+          <h5 class="indicaciones-basic">
+            Por favor indica todos los padecimientos que tengas
+          </h5>
+          <div *ngFor="let item of _listapadecimientos" class="row">        
+          <mat-checkbox 
+                class="example-margin"
+                name="{{item.nombre_padecimiento}}" 
+                (change)="onchange()"
+                value="{{item.id_padecimiento}}"
+                [(ngModel)]="item.isSelected">
+          {{item.nombre_padecimiento}}
+          </mat-checkbox>
+          </div>
+  
+        
+
 
 
         <h5 class="division_formulario">Pregunta de seguridad</h5>
@@ -522,7 +545,7 @@
 
         <mat-form-field appearance="outline" style="width: 90%">
           <mat-label>Pregunta seguridad </mat-label>
-          <mat-select>
+          <mat-select class="form-control" name="pregunta_seguridad_contacto_confianza" [(ngModel)]="form.pregunta_seguridad_contacto_confianza">
             <mat-option value="1">¿Cuál es el nombre de tu primer mascota?</mat-option>
             <mat-option value="2">¿A qué secundaria fuiste?</mat-option>
             <mat-option value="3">¿Cuál es tu equipo deportivo favorito?</mat-option>
@@ -541,13 +564,13 @@
           <input matInput
           type="text"
           class="form-control"
-          name="respuesta_seguridad_contacto"
-          [(ngModel)]="form.respuesta_seguridad_contacto"
+          name="respuesta_seguridad_confianza"
+          [(ngModel)]="form.respuesta_seguridad_confianza"
           required
-          #respuesta_seguridad_contacto="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted &&  respuesta_seguridad_contacto.errors }" />
-          <div class="invalid-feedback" *ngIf="respuesta_seguridad.errors && f.submitted">
-            <div *ngIf="respuesta_seguridad.errors['required']">
+          #respuesta_seguridad_confianza="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted &&  respuesta_seguridad_confianza.errors }" />
+          <div class="invalid-feedback" *ngIf="respuesta_seguridad_confianza.errors && f.submitted">
+            <div *ngIf="respuesta_seguridad_confianza.errors['required']">
                Se requiere una respuesta.
             </div>
           </div>
@@ -659,6 +682,9 @@
             Registrar
             </button> 
        </div>
+       <div class="alert alert-success" *ngIf="isSuccessful">
+        ¡Se completó el registro exitosamente!
+      </div>
 
       </form>
     </mat-card>
