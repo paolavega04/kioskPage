@@ -412,14 +412,23 @@
           </script>
 
 
+          
+          <mat-form-field appearance="outline" style="width: 90%">
+            <mat-label for="confirmPassword">Confirmar Contraseña</mat-label>
+            <input matInput 
+            type="password" 
+            class="form-control" 
+            name="confirmPassword" 
+            [(ngModel)]="form.confirmar_pwd" 
+            required 
+            #confirmPassword="ngModel" />
+          </mat-form-field>
+          <div>
+            <span class = "error-msg" *ngIf="(confirmPassword.touched || f.submitted) && form.confirmar_pwd !== form.contrasena">  Las constraseñas no coinciden </span>
+          </div>
+          
 
-        <mat-form-field appearance="outline" style="width: 90%">
-          <mat-label
-          type="password"
-          class="form-control"
-          name="password">Confirmar contraseña</mat-label>
-          <input matInput />
-        </mat-form-field>
+
 
         <h3 class="header_contactoc">Contacto de confianza</h3>
         <h5 class="indicaciones-basic">
@@ -663,12 +672,21 @@
           </script>
 
 
-        <mat-form-field appearance="outline" style="width: 90%">
-          <mat-label>Confirmar contraseña</mat-label>
-          <input matInput />
-        </mat-form-field>
-
-
+          
+          <mat-form-field appearance="outline" style="width: 90%">
+            <mat-label for="confirmPassword">Confirmar Contraseña</mat-label>
+            <input matInput 
+            type="password" 
+            class="form-control" 
+            name="confirmPassword2" 
+            [(ngModel)]="form.confirmar_pwd_contacto" 
+            required 
+            #confirmPassword2="ngModel" />
+          </mat-form-field>
+          <div>
+            <span class = "error-msg" *ngIf="(confirmPassword2.touched || f.submitted) && form.confirmar_pwd_contacto_confianza!== form.contrasena_contacto_confianza">  Las constraseñas no coinciden </span>
+          </div>
+          
         <div class="box">
           <button (click)="salir()" mat-stroked-button  class="login-button">
            <i aria-hidden="true"></i>

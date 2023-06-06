@@ -57,7 +57,9 @@ export class UcontactComponent implements OnInit {
     correo_contacto_confianza: null,
     contrasena_contacto_confianza: null,
     pregunta_seguridad_contacto_confianza: null,
-    respuesta_seguridad_confianza: null
+    respuesta_seguridad_confianza: null,
+    confirmar_pwd: null,
+    confirmar_pwd_contacto: null
   };
 
   isSuccessful = false;

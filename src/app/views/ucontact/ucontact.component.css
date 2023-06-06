@@ -114,3 +114,7 @@
   overflow-y:auto;
   text-align: center;
 }
+
+.error-msg {
+  color: crimson;
+}
