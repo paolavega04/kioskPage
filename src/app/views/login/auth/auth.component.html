@@ -29,6 +29,8 @@
                     <div *ngIf="correo.errors && f.submitted" class="invalid-feedback">
                         ¡Se necesita el correo electrónico!
                     </div>
+
+
                     <mat-form-field appearance="outline">
                         <mat-label>Contraseña</mat-label>
                         <input matInput
@@ -54,6 +56,7 @@
                     <i aria-hidden="true"></i>
                     Iniciar sesión
                 </button>
+                
                     <div class="form-group">
                     <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
                       Falló el inicio de sesión: {{ errorMessage }}
@@ -67,6 +70,7 @@
                     <i aria-hidden="true"></i>
                     Crear cuenta
                 </button>
+                
                 <div class="password-b">
                     <button (click)="restore()" mat-button class="password-btn"  style="margin-top: 0.9rem">
                         <i aria-hidden="true"></i>

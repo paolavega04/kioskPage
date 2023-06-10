@@ -13,34 +13,74 @@
           tu contraseña
         </h5>
 
+        <form 
+                    *ngIf="!isLoggedIn"
+                    name="form"
+                    (ngSubmit)="f.form.valid && onSubmit()"
+                    #f="ngForm"
+                    novalidate
+                >
+
         <mat-form-field appearance="outline" style="width: 70%">
           <mat-label>Correo</mat-label>
-          <input matInput />
+          <input matInput
+          type="text"
+                        class="form-control"
+                        name="correo"
+                        [(ngModel)]="form.correo"
+                        required
+                        #correo="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && correo.errors }" />
         </mat-form-field>
+        <div *ngIf="correo.errors && f.submitted" class="invalid-feedback">
+          ¡Se necesita el correo electrónico!
+      </div>
 
-        <h5 class="indicaciones-basic" style="margin-top: 0.2rem">
-          Pregunta de seguridad para reestablecer contraseña
-        </h5>
         <mat-form-field appearance="outline" style="width: 70%">
           <mat-label>Pregunta seguridad</mat-label>
-          <mat-select>
-            <mat-option value="one">p1</mat-option>
-            <mat-option value="two">p2</mat-option>
+          <mat-select class="form-control" name="pregunta_seguridad">
+            <mat-option value="1">¿Cuál es el nombre de tu primer mascota?</mat-option>
+            <mat-option value="2">¿A qué secundaria fuiste?</mat-option>
+            <mat-option value="3">¿Cuál es tu equipo deportivo favorito?</mat-option>
+            <mat-option value="4">¿Cuál es tu color favorito?</mat-option>
+            <mat-option value="5">¿En qué ciudad nació tu papá?</mat-option>
+            <mat-option value="6">¿Quién es el héroe de tu infancia?</mat-option>
+            <mat-option value="7">¿Cómo decían de pequeño?</mat-option>
+            <mat-option value="8">¿Cuál es tu comida favorita?</mat-option>
+            <mat-option value="9">¿Cuál es tu película favorita?</mat-option>
           </mat-select>
         </mat-form-field>
+
+
         <mat-form-field appearance="outline" style="width: 70%">
           <mat-label>Respuesta</mat-label>
-          <input matInput />
+          <input matInput 
+          type="text"
+                        class="form-control"
+                        name="respuesta_seguridad"
+                        [(ngModel)]="form.respuesta_seguridad"
+                        required
+                        #respuesta_seguridad="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && respuesta_seguridad.errors }"/>
         </mat-form-field>
+        <div *ngIf="respuesta_seguridad.errors && f.submitted" class="invalid-feedback">
+          <div *ngIf="respuesta_seguridad.errors['required']">Se necesita la respuesta de seguridad.</div>
+        </div>
 
-      </form>
+      
       <div class="box">
-        <button (click)="newp()" mat-stroked-button class="login-button" style="width: 70%; margin-top: 0.5rem">
+
+        <button (click)="newp()"  mat-stroked-button class="restore-button" style="width: 70%; margin-top: 0.5rem" type="submit">
           <i aria-hidden="true"></i>
           Siguiente
         </button>
 
+          <div class="form-group">
+          <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+            Falló el inicio de sesión: {{ errorMessage }}
+          </div>
+          </div>
+
       </div>
-    </mat-card>
-  </div>
-</div>
+
+    </form>
